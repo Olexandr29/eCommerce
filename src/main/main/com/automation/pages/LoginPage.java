@@ -7,9 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.automation.pages.TestData.*;
 
-public class LoginPage {
-public WebDriver driver;
-public WebDriverWait wait;
+public class LoginPage extends BasePage {
 
     By usernameField = By.id("user-name");
     By passwordField = By.id("password");
@@ -17,8 +15,7 @@ public WebDriverWait wait;
     By errorMessageLocator = By.xpath("//h3[@data-test='error']");
 
 public LoginPage(WebDriver driver, WebDriverWait wait) {
-    this.driver = driver;
-    this.wait = wait;
+    super(driver, wait);
 }
 
     public void enterCredentials(String username, String password) {
@@ -28,11 +25,11 @@ public LoginPage(WebDriver driver, WebDriverWait wait) {
 
     public void clickLoginBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
-    }
+}
 
     public String getErrorMessage() {
     return wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator)).getText();
-    }
+}
 
     public InventoryPage loginWithValidCredentials() {
     clickLoginBtn();
@@ -53,12 +50,12 @@ public LoginPage(WebDriver driver, WebDriverWait wait) {
         enterCredentials(fakeUser, fakePassword);
         clickLoginBtn();
         return getErrorMessage();
-    }
+}
 
     public InventoryPage successfulLoginAsStandardUser() {
         enterCredentials(standardUsername, password);
         clickLoginBtn();
         return new InventoryPage(driver, wait);
-    }
+}
 
 }

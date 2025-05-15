@@ -1,40 +1,17 @@
-package src.test.tests.java.com.automation.tests.smoke.sanity;
+package com.automation.tests.sanity;
 
-import com.automation.pages.CartPage;
-import com.automation.pages.CheckoutStep1Page;
-import com.automation.pages.InventoryPage;
-import com.automation.pages.LoginPage;
+import com.automation.tests.BaseTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import src.main.main.java.com.automation.pages.CheckoutStep2Page;
 
 import static com.automation.pages.TestData.*;
 
-import java.time.Duration;
-
-public class SanityCheckoutTests {
-    WebDriver driver;
-    WebDriverWait wait;
-
-    LoginPage loginPage;
-    InventoryPage inventoryPage;
-    CartPage cartPage;
-    CheckoutStep1Page checkoutStep1Page;
-    CheckoutStep2Page checkoutStep2Page;
+public class SanityCheckoutTests extends BaseTest {
 
     @Before
     public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        driver.get(url);
-        loginPage = new LoginPage(driver, wait);
+        super.setUp();
         inventoryPage = loginPage.successfulLoginAsStandardUser();
         inventoryPage.addToCartAction();
     }
@@ -70,8 +47,4 @@ public class SanityCheckoutTests {
                 expectedInventoryUrl, inventoryPage.getUrl() );
     }
 
-
-    public void tearDown() {
-        driver.quit();
-    }
 }

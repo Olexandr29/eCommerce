@@ -8,9 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class InventoryPage {
-    WebDriver driver;
-    WebDriverWait wait;
+public class InventoryPage extends BasePage {
 
     By headingLocator = By.className("title");
     By productItemContainer = By.className("inventory_item");
@@ -23,18 +21,13 @@ public class InventoryPage {
     By shoppingCartLink = By.className("shopping_cart_link");
 
     public InventoryPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+        super(driver, wait);
     }
-
-    public String getUrl() {
-    return driver.getCurrentUrl();
-}
 
     public String getHeading() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(headingLocator));
     return driver.findElement(headingLocator).getText();
-}
+    }
 
     public boolean displayedMoreThanOneProduct() {
         boolean moreThan1Product = false;
@@ -84,6 +77,5 @@ public class InventoryPage {
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartLink)).click();
         return new CartPage(driver, wait);
     }
-
 
 }

@@ -8,17 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class CartPage {
-    WebDriver driver;
-    WebDriverWait wait;
+public class CartPage extends BasePage {
 
     By removeBtn = By.xpath("//button[text()='Remove']");
     By shoppingCartBadge = By.className("shopping_cart_badge");
     By checkoutBtn = By.id("checkout");
 
     public CartPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+        super(driver, wait);
     }
 
     public void removeFromTheCart() {
@@ -39,12 +36,9 @@ public class CartPage {
     return wait.until(ExpectedConditions.invisibilityOfElementLocated(shoppingCartBadge));
     }
 
-    public String getUrl() {
-        return driver.getCurrentUrl();
-    }
-
     public CheckoutStep1Page navigateToCheckout() {
         wait.until(ExpectedConditions.elementToBeClickable(checkoutBtn)).click();
         return new CheckoutStep1Page(driver, wait);
     }
+
 }

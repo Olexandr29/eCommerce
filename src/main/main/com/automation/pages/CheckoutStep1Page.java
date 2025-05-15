@@ -5,11 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import src.main.main.java.com.automation.pages.CheckoutStep2Page;
 
-public class CheckoutStep1Page {
-    WebDriver driver;
-    WebDriverWait wait;
+public class CheckoutStep1Page extends BasePage {
 
     By firstNameField = By.id("first-name");
     By lastNameField = By.id("last-name");
@@ -23,12 +20,7 @@ public class CheckoutStep1Page {
     String zipCode = faker.address().zipCode();
 
     public CheckoutStep1Page(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
-    }
-
-    public String getUrl() {
-        return driver.getCurrentUrl();
+        super(driver, wait);
     }
 
     public void enterCheckoutInfo() {
