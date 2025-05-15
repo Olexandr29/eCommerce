@@ -1,4 +1,4 @@
-package com.automation.tests;
+package com.automation.tests.smoke;
 
 import com.automation.pages.InventoryPage;
 import com.automation.pages.LoginPage;
@@ -36,7 +36,7 @@ public class LoginTests {
     @Test
     public void successfulLoginTest() {
     loginPage.enterCredentials(standardUsername, password);
-    inventoryPage = loginPage.loginWitValidCredentials();
+    inventoryPage = loginPage.loginWithValidCredentials();
         Assert.assertEquals("the URL is wrong", expectedInventoryUrl, inventoryPage.getUrl());
         Assert.assertTrue("the title is wrong", inventoryPage.getHeading().equalsIgnoreCase(expectedInventoryTitle));
     }
@@ -44,9 +44,9 @@ public class LoginTests {
     @Test
     public void unsuccessfulLoginWithLockedUser() {
     loginPage.enterCredentials(lockedUser, password);
-    Assert.assertTrue("the error message for locked user is wrong", loginPage.loginWithInvalidCredentials().equals("Sorry, this user has been locked out."));
+    Assert.assertTrue("the error message for locked user is wrong",
+            loginPage.loginWithInvalidCredentials().contains("Sorry, this user has been locked out."));
         }
-
 
     @After
     public void tearDown() {

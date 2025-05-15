@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.automation.pages.TestData.*;
+
 public class LoginPage {
 public WebDriver driver;
 public WebDriverWait wait;
@@ -19,21 +21,44 @@ public LoginPage(WebDriver driver, WebDriverWait wait) {
     this.wait = wait;
 }
 
-public void enterCredentials(String username, String password) {
+    public void enterCredentials(String username, String password) {
     wait.until(ExpectedConditions.elementToBeClickable(usernameField)).sendKeys(username);
     wait.until(ExpectedConditions.elementToBeClickable(passwordField)).sendKeys(password);
 }
 
-public InventoryPage loginWitValidCredentials() {
-    wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
-return new InventoryPage(driver, wait);
-}
+    public void clickLoginBtn() {
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+    }
 
-public String loginWithInvalidCredentials() {
-    wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
-    System.out.println("errorMessageLocator.getText() = " + wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator)).getText());
+    public String getErrorMessage() {
     return wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator)).getText();
+    }
+
+    public InventoryPage loginWithValidCredentials() {
+    clickLoginBtn();
+    return new InventoryPage(driver, wait);
 }
 
+    public String loginWithInvalidCredentials() {
+    clickLoginBtn();
+    return getErrorMessage();
+}
+
+    public String loginWithoutCredentials() {
+        clickLoginBtn();
+    return getErrorMessage();
+}
+
+    public String loginWithNonExistingCredentials() {
+        enterCredentials(fakeUser, fakePassword);
+        clickLoginBtn();
+        return getErrorMessage();
+    }
+
+    public InventoryPage successfulLoginAsStandardUser() {
+        enterCredentials(standardUsername, password);
+        clickLoginBtn();
+        return new InventoryPage(driver, wait);
+    }
 
 }

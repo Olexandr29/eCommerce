@@ -20,6 +20,7 @@ public class InventoryPage {
     By logOutBtn = By.id("logout_sidebar_link");
     By addToCartBtn = By.xpath("//button[text()='Add to cart']");
     By shoppingCartBadge = By.className("shopping_cart_badge");
+    By shoppingCartLink = By.className("shopping_cart_link");
 
     public InventoryPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -50,7 +51,7 @@ public class InventoryPage {
         List<WebElement> products = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productItemContainer));
         for (WebElement product : products) {
             if (!product.findElement(productNameLocator).isDisplayed()
-                    && !product.findElement(productPriceLocator).isDisplayed()) {
+                    || !product.findElement(productPriceLocator).isDisplayed()) {
                 System.out.println("the product does not have name or/and price, it has just = " + product.getText());
                 allProductsContainNameAndPrice = false;
             }
@@ -73,5 +74,16 @@ public class InventoryPage {
         int actualAmount = Integer.parseInt(actualText);
         return actualAmount;
     }
+
+    public CartPage openCartByClickOnCartBadge() {
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartBadge)).click();
+        return new CartPage(driver, wait);
+    }
+
+    public CartPage openCartByClickOnCartIcon() {
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartLink)).click();
+        return new CartPage(driver, wait);
+    }
+
 
 }

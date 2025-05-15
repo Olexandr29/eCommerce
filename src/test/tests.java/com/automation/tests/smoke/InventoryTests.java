@@ -1,4 +1,4 @@
-package com.automation.tests;
+package com.automation.tests.smoke;
 
 import com.automation.pages.InventoryPage;
 import com.automation.pages.LoginPage;
@@ -36,7 +36,7 @@ public class InventoryTests {
         driver.get(url);
         loginPage = new LoginPage(driver, wait);
         loginPage.enterCredentials(standardUsername, password);
-        inventoryPage = loginPage.loginWitValidCredentials();
+        inventoryPage = loginPage.loginWithValidCredentials();
     }
 
     @Test
@@ -64,7 +64,7 @@ public class InventoryTests {
 
     @After
     public void tearDown() {
-    driver.quit();
+        driver.quit();
     }
 
 }

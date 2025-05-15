@@ -27,19 +27,19 @@ Steps:
 Expected Result:
 An error message "Username and password do not match any user" is displayed.
 
-TC-009: Remove item from the cart
-Preconditions: The user is logged in as standard_user and has added one item to the cart
-Steps:
-1. Click the "Remove" button next to the added item.
-Expected Result:
-The item is removed from the cart, the "Add to cart" button reappears, and the cart badge disappears.
-
-TC-010: Navigate to the cart page
+TC-009: Navigate to the cart page
 Preconditions: The user is logged in as standard_user
 Steps:
 1. Click the shopping cart icon in the top-right corner.
 Expected Result:
 The user is redirected to /cart.html and sees the contents of the cart.
+
+TC-010: Remove item from the cart
+Preconditions: The user is logged in as standard_user and has added one item to the cart
+Steps:
+1. Click the "Remove" button next to the added item.
+   Expected Result:
+   The item is removed from the cart and the cart badge disappears.
 
 TC-011: Proceed to checkout
 Preconditions: The user is logged in as standard_user and has at least one item in the cart
@@ -62,7 +62,7 @@ Preconditions: The user is on the /checkout-step-two.html page
 Steps:
 1. Click the "Cancel" button.
 Expected Result:
-The user is redirected back to the cart page (/cart.html).
+The user is redirected back to the inventory page (/inventory.html).
 
 
 
