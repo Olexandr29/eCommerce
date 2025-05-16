@@ -34,4 +34,5 @@ public class CheckoutStep1Page extends BasePage {
         return new CheckoutStep2Page(driver, wait);
     }
 
+
 }

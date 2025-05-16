@@ -20,6 +20,7 @@ public class BaseTest {
     protected CartPage cartPage;
     protected CheckoutStep1Page checkoutStep1Page;
     protected CheckoutStep2Page checkoutStep2Page;
+    protected InventoryProductDetails inventoryProductDetails;
 
     @Before
     public void setUp() {

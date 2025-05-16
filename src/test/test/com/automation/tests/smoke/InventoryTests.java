@@ -36,7 +36,7 @@ public class InventoryTests extends BaseTest {
     public void addItemToCartAndCheckBadge() {
         inventoryPage.addToCartAction();
         Assert.assertEquals("Cart icon doesn't show badge with '1'",
-                1, inventoryPage.getItemAmount());
+                1, inventoryPage.getItemAmountFromCart());
     }
 
 }

@@ -1,7 +1,7 @@
 @Functional tests - automate:
 
 Products Page
-TTC-014: Sort products by price (low to high)
+TC-014: Sort products by price (low to high)
 Preconditions: User is logged in as standard_user, on /inventory.html
 Steps:
 1. Select "Price (low to high)"

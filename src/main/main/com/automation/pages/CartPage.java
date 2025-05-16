@@ -13,6 +13,7 @@ public class CartPage extends BasePage {
     By removeBtn = By.xpath("//button[text()='Remove']");
     By shoppingCartBadge = By.className("shopping_cart_badge");
     By checkoutBtn = By.id("checkout");
+    By itemContainerInCart = By.className("cart_item");
 
     public CartPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -41,4 +42,12 @@ public class CartPage extends BasePage {
         return new CheckoutStep1Page(driver, wait);
     }
 
+    public void removeOneItem() {
+        List<WebElement> allRemoveButtons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(removeBtn));
+        allRemoveButtons.get(0).click();
+    }
+
+    public boolean isCartEmpty() {
+       return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemContainerInCart)).isEmpty();
+    }
 }

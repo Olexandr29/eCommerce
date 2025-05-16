@@ -4,8 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryPage extends BasePage {
@@ -17,8 +19,8 @@ public class InventoryPage extends BasePage {
     By burgerMenuBtn = By.id("react-burger-menu-btn");
     By logOutBtn = By.id("logout_sidebar_link");
     By addToCartBtn = By.xpath("//button[text()='Add to cart']");
-    By shoppingCartBadge = By.className("shopping_cart_badge");
     By shoppingCartLink = By.className("shopping_cart_link");
+    By sortDropdown = By.className("product_sort_container");
 
     public InventoryPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -62,20 +64,53 @@ public class InventoryPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(addToCartBtn)).click();
     }
 
-    public int getItemAmount() {
-        String actualText = wait.until(ExpectedConditions.elementToBeClickable(shoppingCartBadge)).getText();
-        int actualAmount = Integer.parseInt(actualText);
-        return actualAmount;
-    }
-
-    public CartPage openCartByClickOnCartBadge() {
-        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartBadge)).click();
-        return new CartPage(driver, wait);
-    }
-
     public CartPage openCartByClickOnCartIcon() {
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartLink)).click();
         return new CartPage(driver, wait);
+    }
+
+    public void sortByPriceFromLowToHigh() {
+        WebElement dropdown = driver.findElement(sortDropdown);
+        Select select = new Select(dropdown);
+        select.selectByVisibleText("Price (low to high)");
+    }
+
+    public List<Double> getAllProductPrices() {
+        List<WebElement> priceElements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productPriceLocator));
+        List<Double> prices = new ArrayList<>();
+        for (WebElement priceElement : priceElements) {
+            String priceText = priceElement.getText().replace("$", "").trim();
+            prices.add(Double.parseDouble(priceText));
+        }
+    return prices;
+    }
+
+    public void sortByNameFromZtoA() {
+        WebElement dropdown = driver.findElement(sortDropdown);
+        Select select = new Select(dropdown);
+        select.selectByVisibleText("Name (Z to A)");
+    }
+
+    public List<String> getAllNames() {
+        List<WebElement> allProductsWithNames = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productNameLocator));
+        List<String> names = new ArrayList<>();
+        for (WebElement productName : allProductsWithNames) {
+            names.add(productName.getText());
+        }
+    return names;
+    }
+
+    public InventoryProductDetails openProductDetailList() {
+        WebElement productName = wait.until(ExpectedConditions.elementToBeClickable(productNameLocator));
+        productName.click();
+        return new InventoryProductDetails(driver, wait);
+    }
+
+    public void add3ItemsToTheCart() {
+    List<WebElement> allAddToCartButtons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(addToCartBtn));
+    for (int i = 1; i < 4; i++) {
+        allAddToCartButtons.get(i).click();
+         }
     }
 
 }
