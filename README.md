@@ -1,6 +1,86 @@
-automate
-@Sanity tests:
+@Functional tests - automate:
 
+Products Page
+TTC-014: Sort products by price (low to high)
+Preconditions: User is logged in as standard_user, on /inventory.html
+Steps:
+1. Select "Price (low to high)"
+Expected Result: Items sorted correctly from cheapest to most expensive
+
+TC-015: Sort products by name (Z to A)
+Preconditions: User is logged in as standard_user, on /inventory.html
+Steps:
+1. Select "Name (Z to A)"
+Expected Result: Items sorted in reverse alphabetical order
+
+TC-016: Product details view
+Preconditions: User is logged in as standard_user, on /inventory.html
+Steps:
+1. Click on product name
+Expected Result: New page shows full info: image, name, description, price
+
+
+Cart Functionality
+TC-017: Add multiple items to cart
+Preconditions: User is logged in as standard_user, on /inventory.html
+Steps:
+1. Add 3 different products
+Expected Result: Cart badge shows "3"
+
+TC-018: Remove one item from cart
+Preconditions: Logged in as standard_user, 3 items already added
+Preconditions: 3 items added
+Steps:
+1. Navigate to cart
+2. Click "Remove" for one item
+Expected Result: Badge shows "2", only 2 items remain
+
+TC-019: Cart state persists across navigation
+Preconditions: Logged in as standard_user, 1 item added to cart
+Steps:
+1. Navigate to another page (e.g. product detail) and return
+Expected Result: Cart badge is preserved, item still in cart
+
+
+Checkout Flow
+TC-020: Full purchase flow
+Preconditions: Logged in as standard_user, on /inventory.html
+Steps:
+1. Add product → Go to cart → Checkout → Fill info → Finish
+Expected Result: Confirmation page with "Thank you for your order!"
+
+TC-021: Checkout form validation
+Preconditions: Logged in as standard_user, in checkout step one
+Steps:
+1. Leave fields empty
+2. Click Continue
+Expected Result: Error like "First Name is required"
+
+TC-022: Total price with tax is calculated correctly
+Preconditions: Logged in, 2+ known items added, in checkout overview
+Steps:
+1. Observe item prices, subtotal, tax, and total
+Expected Result: Subtotal + Tax = Total (matches UI values)
+
+
+Navigation
+TC-023: Back from product detail to product list
+Preconditions: Logged in as standard_user, on product detail page
+Steps:
+1. Click “Back to products”
+Expected Result: Return to /inventory.html
+
+TC-024: Use browser back button from product detail
+Preconditions: Logged in as standard_user, on product detail page
+Steps:
+1. Press browser back
+Expected Result: Returns to /inventory.html
+
+
+
+
+
+@Sanity tests - automated:
 TC-006: Successful login as performance_glitch_user
 Preconditions: The website saucedemo.com is open
 Steps:
@@ -66,7 +146,7 @@ The user is redirected back to the inventory page (/inventory.html).
 
 
 
-@Smoke tests: - automated
+@Smoke tests - automated:
 TC-001: Successful login with valid credentials
 Preconditions: The website saucedemo.com is open
 Steps:
