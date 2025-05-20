@@ -14,8 +14,6 @@ public class InventoryPage extends BasePage {
 
     By headingLocator = By.className("title");
     By productItemContainer = By.className("inventory_item");
-    By productNameLocator = By.className("inventory_item_name");
-    By productPriceLocator = By.className("inventory_item_price");
     By burgerMenuBtn = By.id("react-burger-menu-btn");
     By logOutBtn = By.id("logout_sidebar_link");
     By addToCartBtn = By.xpath("//button[text()='Add to cart']");
@@ -35,7 +33,6 @@ public class InventoryPage extends BasePage {
         boolean moreThan1Product = false;
         List<WebElement> products = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productItemContainer));
         if (products.size() > 1) {
-            System.out.println("products.size = " + products.size());
             moreThan1Product = true;
         }
         return moreThan1Product;
@@ -75,29 +72,10 @@ public class InventoryPage extends BasePage {
         select.selectByVisibleText("Price (low to high)");
     }
 
-    public List<Double> getAllProductPrices() {
-        List<WebElement> priceElements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productPriceLocator));
-        List<Double> prices = new ArrayList<>();
-        for (WebElement priceElement : priceElements) {
-            String priceText = priceElement.getText().replace("$", "").trim();
-            prices.add(Double.parseDouble(priceText));
-        }
-    return prices;
-    }
-
     public void sortByNameFromZtoA() {
         WebElement dropdown = driver.findElement(sortDropdown);
         Select select = new Select(dropdown);
         select.selectByVisibleText("Name (Z to A)");
-    }
-
-    public List<String> getAllNames() {
-        List<WebElement> allProductsWithNames = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productNameLocator));
-        List<String> names = new ArrayList<>();
-        for (WebElement productName : allProductsWithNames) {
-            names.add(productName.getText());
-        }
-    return names;
     }
 
     public InventoryProductDetails openProductDetailList() {

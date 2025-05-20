@@ -21,6 +21,7 @@ public class BaseTest {
     protected CheckoutStep1Page checkoutStep1Page;
     protected CheckoutStep2Page checkoutStep2Page;
     protected InventoryProductDetails inventoryProductDetails;
+    protected CheckoutStep3CompletePage checkoutStep3CompletePage;
 
     @Before
     public void setUp() {

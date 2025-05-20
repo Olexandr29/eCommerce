@@ -16,5 +16,8 @@ public static final String expectedErrMsgForNonExistentUser = "Username and pass
 public static final String expectedCartPageUrl = url + "cart.html";
 public static final String expectedCheckoutStep1Url = url + "checkout-step-one.html";
 public static final String expectedCheckoutStep2Url = url + "checkout-step-two.html";
+public static final String expectedCheckoutStep3Confirmation = "Thank you for your order!";
+public static final String expectedCheckoutStep1NameIsEmpty = "First Name is required";
+
 
 }

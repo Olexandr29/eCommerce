@@ -16,6 +16,8 @@ public class InventoryProductDetails extends BasePage{
     By descriptionLocator = By.xpath("//div[@data-test='inventory-item-desc']");
     By priceLocator = By.className("inventory_details_price");
 
+    By backToProductsBtb = By.id("back-to-products");
+
     public InventoryProductDetails(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -39,6 +41,16 @@ public class InventoryProductDetails extends BasePage{
 
     public boolean isPricePresence() {
        return wait.until(ExpectedConditions.visibilityOfElementLocated(priceLocator)).isDisplayed();
+    }
+
+    public InventoryPage returnToInventoryByClickBackToProduct() {
+        wait.until(ExpectedConditions.elementToBeClickable(backToProductsBtb)).click();
+        return new InventoryPage(driver, wait);
+    }
+
+    public InventoryPage returnToInventoryByClickBrowserBackBtn() {
+        driver.navigate().back();
+        return new InventoryPage(driver, wait);
     }
 
 }

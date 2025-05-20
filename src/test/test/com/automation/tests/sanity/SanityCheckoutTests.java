@@ -29,7 +29,7 @@ public class SanityCheckoutTests extends BaseTest {
         cartPage = inventoryPage.openCartByClickOnCartBadge();
         checkoutStep1Page = cartPage.navigateToCheckout();
         checkoutStep1Page.enterCheckoutInfo();
-        checkoutStep2Page = checkoutStep1Page.clickContinue();
+        checkoutStep2Page = checkoutStep1Page.clickContinueAndNavigateToNextStep();
         Assert.assertEquals("the url is wrong fro checkout step 2 page",
                 expectedCheckoutStep2Url,
                 checkoutStep2Page.getUrl());
@@ -41,7 +41,7 @@ public class SanityCheckoutTests extends BaseTest {
         cartPage = inventoryPage.openCartByClickOnCartBadge();
         checkoutStep1Page = cartPage.navigateToCheckout();
         checkoutStep1Page.enterCheckoutInfo();
-        checkoutStep2Page = checkoutStep1Page.clickContinue();
+        checkoutStep2Page = checkoutStep1Page.clickContinueAndNavigateToNextStep();
         inventoryPage = checkoutStep2Page.clickCancel();
         Assert.assertEquals("user is not redirected from checkout to cart page",
                 expectedInventoryUrl, inventoryPage.getUrl() );

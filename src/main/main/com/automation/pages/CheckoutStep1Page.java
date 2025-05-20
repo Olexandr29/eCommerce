@@ -6,12 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class CheckoutStep1Page extends BasePage {
 
     By firstNameField = By.id("first-name");
     By lastNameField = By.id("last-name");
     By zipOrPostCode = By.id("postal-code");
     By continueBtn = By.id("continue");
+    By errBtnWithTextLocator = By.xpath("//h3");
 
     Faker faker = new Faker();
 
@@ -29,9 +32,14 @@ public class CheckoutStep1Page extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(zipOrPostCode)).sendKeys(zipCode);
     }
 
-    public CheckoutStep2Page clickContinue() {
+    public CheckoutStep2Page clickContinueAndNavigateToNextStep() {
         wait.until(ExpectedConditions.elementToBeClickable(continueBtn)).click();
         return new CheckoutStep2Page(driver, wait);
+    }
+
+    public String getErrorMessage() {
+        wait.until(ExpectedConditions.elementToBeClickable(continueBtn)).click();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(errBtnWithTextLocator)).getText();
     }
 
 
