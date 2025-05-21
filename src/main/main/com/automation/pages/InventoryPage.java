@@ -10,15 +10,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.automation.pages.TestData.specificProductName;
+
 public class InventoryPage extends BasePage {
 
     By headingLocator = By.className("title");
+    By listOfProductsContainer = By.className("inventory_list");
     By productItemContainer = By.className("inventory_item");
     By burgerMenuBtn = By.id("react-burger-menu-btn");
     By logOutBtn = By.id("logout_sidebar_link");
     By addToCartBtn = By.xpath("//button[text()='Add to cart']");
     By shoppingCartLink = By.className("shopping_cart_link");
     By sortDropdown = By.className("product_sort_container");
+
 
     public InventoryPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -90,5 +94,40 @@ public class InventoryPage extends BasePage {
         allAddToCartButtons.get(i).click();
          }
     }
+
+    public boolean isInventoryContainerVisible() {
+        return driver.findElement(listOfProductsContainer).isDisplayed();
+    }
+
+    public boolean isBurgerMenuVisible() {
+        return driver.findElement(burgerMenuBtn).isDisplayed();
+    }
+
+    public boolean isAddToCartButtonClickable() {
+        WebElement addButton = driver.findElement(addToCartBtn);
+        return addButton.isDisplayed() && addButton.isEnabled();
+    }
+
+    public void addSpecificItemToCart(String itemName) {
+        WebElement itemContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='inventory_item' and .//div[text()='" + itemName + "']]")));
+        WebElement button = itemContainer.findElement(By.tagName("button"));
+        button.click();
+    }
+
+    public String getTextOfTheButton(String itemName) {
+        WebElement itemContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='inventory_item' and .//div[text()='" + itemName + "']]")));
+        WebElement button = itemContainer.findElement(By.tagName("button"));
+        return button.getText();
+    }
+
+    public String getButtonClass(String itemName) {
+        WebElement itemContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='inventory_item' and .//div[text()='" + itemName + "']]")));
+        WebElement button = itemContainer.findElement(By.tagName("button"));
+        return button.getCssValue("color");
+    }
+
 
 }

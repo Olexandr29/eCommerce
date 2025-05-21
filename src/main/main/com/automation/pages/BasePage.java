@@ -14,13 +14,12 @@ public class BasePage {
     public WebDriverWait wait;
 
     By shoppingCartBadge = By.className("shopping_cart_badge");
-
     By productNameLocator = By.className("inventory_item_name");
     By productPriceLocator = By.className("inventory_item_price");
-
     By itemContainerForCartAndCheckout = By.className("cart_item");
-    By itemContainerForInventory = By.className("inventory_item");
 
+    By logoLocator = By.className("app_logo");
+    By titleLocator = By.className("title");
 
     public BasePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -78,26 +77,6 @@ public class BasePage {
     return actualDigitPrice;
     }
 
-//    public double getPriceForSpecificItem(List<String> names) {
-//        List<String> itemNames = namesOfAddedItems();
-//        for (String justOneName : itemNames) {
-//
-//        }
-//        return
-//    }
-
-//    public double getPriceForSpecificItem(String itemName) {
-//        List<WebElement> items = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(itemContainer));
-//        for (WebElement item : items) {
-//            String name = item.findElement(productNameLocator).getText();
-//            if (name.equals(itemName)) {
-//                String priceText = item.findElement(productPriceLocator).getText().replace("$", "");
-//                return Double.parseDouble(priceText);
-//            }
-//        }
-//        throw new RuntimeException(("item with name '" + itemName + "' not found on the page"));
-//    }
-
     public double getPriceByItemName (String itemName) {
         List<WebElement> items = driver.findElements(itemContainerForCartAndCheckout);
         for (WebElement item : items) {
@@ -108,5 +87,25 @@ public class BasePage {
             }
         }
         throw new RuntimeException("item not fund on the page: " + itemName);
+    }
+
+    public boolean isLogoVisible() {
+       return wait.until(ExpectedConditions.visibilityOfElementLocated(logoLocator)).isDisplayed();
+    }
+
+    public boolean isHeaderVisible() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(titleLocator)).isDisplayed();
+    }
+
+    public String getHeader() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(titleLocator)).getText();
+    }
+
+    public void minimize() {
+        driver.manage().window().minimize();
+    }
+
+    public void maximize() {
+        driver.manage().window().maximize();
     }
 }

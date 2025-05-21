@@ -18,6 +18,7 @@ public static final String expectedCheckoutStep1Url = url + "checkout-step-one.h
 public static final String expectedCheckoutStep2Url = url + "checkout-step-two.html";
 public static final String expectedCheckoutStep3Confirmation = "Thank you for your order!";
 public static final String expectedCheckoutStep1NameIsEmpty = "First Name is required";
+public static final String specificProductName = "Sauce Labs Onesie";
 
 
 }

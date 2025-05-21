@@ -14,7 +14,6 @@ import java.time.Duration;
 public class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait wait;
-
     protected LoginPage loginPage;
     protected InventoryPage inventoryPage;
     protected CartPage cartPage;

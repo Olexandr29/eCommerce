@@ -1,4 +1,28 @@
-@Functional tests - automate:
+@UI/UX Checks (tc25-27) - automate:
+
+TC-025: Logo and header visibility
+Preconditions: User is logged in as standard_user, on /inventory.html
+Steps:
+1. Observe top of the page
+Expected Result: Logo + "Products" heading visible
+
+TC-026: Browser window resizing
+Preconditions: User is logged in as standard_user, on /inventory.html
+Steps:
+1. Resize browser window (e.g. shrink, expand)
+Expected Result: Layout adjusts responsively, no broken layout
+
+TC-027: Button state change on interaction
+Preconditions: User is logged in as standard_user, on /inventory.html
+Steps:
+1. Click “Add to cart”
+2. Observe button changes
+3. Click “Remove”
+Expected Result: Button text/color changes appropriately at each step
+
+
+
+@Functional tests - automated:
 
 Products Page
 TC-014: Sort products by price (low to high)
