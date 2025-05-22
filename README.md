@@ -1,4 +1,34 @@
-@UI/UX Checks (tc25-27) - automate:
+@Negative test - automate:
+
+TC-028: Entering SQL Injection in Username
+Preconditions: User is on the login page: https://www.saucedemo.com/
+Steps:
+1. Enter admin' OR '1'='1 into the Username field
+2. Enter any password
+3. Click the Login button
+Expected Result: Login is rejected, and an error message is shown
+Note: Validates resistance to SQL injection
+
+TC-029: Long Value in Username Field
+Preconditions: User is on the login page
+Steps:
+1. Enter a string of 500 characters (e.g., "a" × 500) into the Username field
+2. Enter any password
+3. Click the Login button
+Expected Result: Login fails, either due to an error message or input being truncated
+Note: Tests input length limitations
+
+TC-030: Login with Leading/Trailing Spaces in Username
+Preconditions: User is on the login page
+Steps:
+1. Enter standard_user (with spaces before and after) in the Username field
+2. Enter the correct password
+3. Click the Login button
+Expected Result: Login fails because the spaces are treated as part of the username
+Note: Checks if spaces are trimmed automatically
+
+
+@UI/UX Checks (tc25-27) - automated:
 
 TC-025: Logo and header visibility
 Preconditions: User is logged in as standard_user, on /inventory.html

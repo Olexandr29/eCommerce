@@ -19,6 +19,6 @@ public static final String expectedCheckoutStep2Url = url + "checkout-step-two.h
 public static final String expectedCheckoutStep3Confirmation = "Thank you for your order!";
 public static final String expectedCheckoutStep1NameIsEmpty = "First Name is required";
 public static final String specificProductName = "Sauce Labs Onesie";
-
-
+public static final String fiveHundredSymbols = "a".repeat(500);
+public static final String standardUsernameButWithSpacesBeforeAndAfter = " standard_user ";
 }
