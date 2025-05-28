@@ -1,16 +1,18 @@
 package com.automation.tests.functional;
 
 import com.automation.tests.BaseTest;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class FunctionalInventoryTests extends BaseTest {
 
-    @Before
+    @BeforeEach
     public void setUp() {
         super.setUp();
         inventoryPage = loginPage.successfulLoginAsStandardUser();
@@ -18,38 +20,35 @@ public class FunctionalInventoryTests extends BaseTest {
 
     @Test
     public void sortProductsByPriceAscending() {
-    inventoryPage.sortByPriceFromLowToHigh();
+        inventoryPage.sortByPriceFromLowToHigh();
         List<Double> actualSortedPrices = inventoryPage.getAllProductPrices();
         List<Double> expectedSortedPrices = actualSortedPrices.stream()
-                        .sorted().collect(Collectors.toList());
-        Assert.assertEquals("products are not sorted correctly from cheapest to most expensive",
-                expectedSortedPrices, actualSortedPrices);
+                .sorted().collect(Collectors.toList());
+        Assertions.assertEquals(expectedSortedPrices, actualSortedPrices, "products are not sorted correctly from cheapest to most expensive");
     }
 
     @Test
     public void sortProductsByNameDescending() {
-    inventoryPage.sortByNameFromZtoA();
-    List<String> actualSortedNames = inventoryPage.getAllNames();
-    List<String> expectedSortedNames = actualSortedNames.stream()
-            .sorted((a, b) -> b.compareToIgnoreCase(a)).toList();
-    Assert.assertEquals("products are not sorted in reverse alphabetical order",
-            expectedSortedNames, actualSortedNames);
+        inventoryPage.sortByNameFromZtoA();
+        List<String> actualSortedNames = inventoryPage.getAllNames();
+        List<String> expectedSortedNames = actualSortedNames.stream()
+                .sorted((a, b) -> b.compareToIgnoreCase(a)).toList();
+        Assertions.assertEquals(expectedSortedNames, actualSortedNames, "products are not sorted in reverse alphabetical order");
     }
 
     @Test
     public void productDetailsView() {
         inventoryProductDetails = inventoryPage.openProductDetailList();
-        Assert.assertTrue("product name is not present", inventoryProductDetails.isNamePresence());
-        Assert.assertTrue("image is not present", inventoryProductDetails.isImagePresence());
-        Assert.assertTrue("description is not present", inventoryProductDetails.isDescriptionPresence());
-        Assert.assertTrue("price is not present", inventoryProductDetails.isPricePresence());
+        Assertions.assertTrue(inventoryProductDetails.isNamePresence(), "product name is not present");
+        Assertions.assertTrue(inventoryProductDetails.isImagePresence(), "image is not present");
+        Assertions.assertTrue(inventoryProductDetails.isDescriptionPresence(), "description is not present");
+        Assertions.assertTrue(inventoryProductDetails.isPricePresence(), "price is not present");
     }
 
     @Test
     public void addMultipleItemsToCart() {
-    inventoryPage.add3ItemsToTheCart();
-    Assert.assertEquals("there were added 3 items but displayed not 3",
-            3, inventoryPage.getItemAmountFromCart());
+        inventoryPage.add3ItemsToTheCart();
+        Assertions.assertEquals(3, inventoryPage.getItemAmountFromCart(), "there were added 3 items but displayed not 3");
     }
 
 }

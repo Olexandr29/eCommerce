@@ -1,15 +1,18 @@
+
 package com.automation.tests;
 
 import com.automation.pages.*;
 import static com.automation.pages.TestData.*;
-import org.junit.After;
-import org.junit.Before;
-import org.openqa.selenium.WebDriver;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
+
 
 public class BaseTest {
     protected WebDriver driver;
@@ -22,7 +25,7 @@ public class BaseTest {
     protected InventoryProductDetails inventoryProductDetails;
     protected CheckoutStep3CompletePage checkoutStep3CompletePage;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
@@ -33,7 +36,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver, wait);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         driver.quit();
     }

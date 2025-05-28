@@ -2,14 +2,17 @@ package com.automation.tests.smoke;
 import com.automation.tests.BaseTest;
 
 import com.automation.pages.*;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+
 import static com.automation.pages.TestData.*;
 
 public class InventoryTests extends BaseTest {
 
-    @Before
+    @BeforeEach
     public void setUp() {
         super.setUp();
         loginPage.enterCredentials(standardUsername, password);
@@ -18,25 +21,21 @@ public class InventoryTests extends BaseTest {
 
     @Test
     public void checkProductListPresenceAfterLogin() {
-        Assert.assertTrue("displayed less than 2 products",
-                inventoryPage.displayedMoreThanOneProduct());
-       Assert.assertTrue("some product has not name or/and price",
-               inventoryPage.areProductsContainNameAndPrice());
+        Assertions.assertTrue(inventoryPage.displayedMoreThanOneProduct(), "displayed less than 2 products");
+        Assertions.assertTrue(inventoryPage.areProductsContainNameAndPrice(), "some product has not name or/and price");
     }
 
     @Test
     public void logoutFromTheWebsite() {
         LoginPage loginPageAfterLogout = inventoryPage.logOutAction();
         String actualUrl = loginPageAfterLogout.driver.getCurrentUrl();
-        Assert.assertEquals("User is redirected to login page",
-                url, actualUrl);
+        Assertions.assertEquals(url, actualUrl, "User is redirected to login page");
     }
 
     @Test
     public void addItemToCartAndCheckBadge() {
         inventoryPage.addToCartAction();
-        Assert.assertEquals("Cart icon doesn't show badge with '1'",
-                1, inventoryPage.getItemAmountFromCart());
+        Assertions.assertEquals(1, inventoryPage.getItemAmountFromCart(), "Cart icon doesn't show badge with '1'");
     }
 
 }

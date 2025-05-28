@@ -1,25 +1,39 @@
+
 package com.automation.tests.smoke;
 
 import com.automation.tests.BaseTest;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+
+
+
 import static com.automation.pages.TestData.*;
 
 public class LoginTests extends BaseTest {
-
+//    @Epic("Login Tests")
+//    @Feature("Successful Login")
+//    @Story("Login with Valid Credentials")
+//    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void successfulLoginTest() {
-    loginPage.enterCredentials(standardUsername, password);
-    inventoryPage = loginPage.loginWithValidCredentials();
-        Assert.assertEquals("the URL is wrong", expectedInventoryUrl, inventoryPage.getUrl());
-        Assert.assertTrue("the title is wrong", inventoryPage.getHeading().equalsIgnoreCase(expectedInventoryTitle));
+        loginPage.enterCredentials(standardUsername, password);
+        inventoryPage = loginPage.loginWithValidCredentials();
+        Assertions.assertEquals(inventoryPage.getUrl(), expectedInventoryUrl, "the URL is wrong");
+        Assertions.assertTrue(inventoryPage.getHeading().equalsIgnoreCase(expectedInventoryTitle), "the title is wrong");
     }
 
-    @Test
+//    @Epic("Login Tests")
+//    @Feature("Negative Login")
+//    @Story("Login with Locked out user")
+//    @Severity(SeverityLevel.CRITICAL)
+ @Test
     public void unsuccessfulLoginWithLockedUser() {
-    loginPage.enterCredentials(lockedUser, password);
-    Assert.assertTrue("the error message for locked user is wrong",
-            loginPage.loginWithInvalidCredentials().contains(expectedErrMsgForLockedUser));
-        }
+     loginPage.enterCredentials(lockedUser, password);
+     Assertions.assertTrue(loginPage.loginWithInvalidCredentials().contains(expectedErrMsgForLockedUser), "the error message for locked user is wrong");
+ }
 
 }

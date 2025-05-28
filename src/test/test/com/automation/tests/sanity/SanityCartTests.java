@@ -1,14 +1,17 @@
 package com.automation.tests.sanity;
 
 import com.automation.tests.BaseTest;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+
 import static com.automation.pages.TestData.*;
 
 public class SanityCartTests extends BaseTest {
 
-    @Before
+    @BeforeEach
     public void setUp() {
         super.setUp();
         inventoryPage = loginPage.successfulLoginAsStandardUser();
@@ -17,8 +20,7 @@ public class SanityCartTests extends BaseTest {
     @Test
     public void navigateToCartPage() {
         cartPage = inventoryPage.openCartByClickOnCartIcon();
-        Assert.assertEquals("the url of the cart page is wrong",
-                expectedCartPageUrl, cartPage.getUrl() );
+        Assertions.assertEquals(expectedCartPageUrl, cartPage.getUrl(), "the url of the cart page is wrong");
     }
 
     @Test
@@ -26,10 +28,8 @@ public class SanityCartTests extends BaseTest {
         inventoryPage.addToCartAction();
         cartPage = inventoryPage.openCartByClickOnCartBadge();
         cartPage.removeFromTheCart();
-        Assert.assertTrue("cart is not empty and the item is not removed",
-                cartPage.isRemoveButtonDisappeared());
-        Assert.assertTrue("the cart badge is not disappeared",
-                cartPage.isCartBadgeDisappeared());
+        Assertions.assertTrue(cartPage.isRemoveButtonDisappeared(), "cart is not empty and the item is not removed");
+        Assertions.assertTrue(cartPage.isCartBadgeDisappeared(), "the cart badge is not disappeared");
     }
 
 }

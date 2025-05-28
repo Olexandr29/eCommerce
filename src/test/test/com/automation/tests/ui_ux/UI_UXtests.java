@@ -1,14 +1,16 @@
 package com.automation.tests.ui_ux;
 
 import com.automation.tests.BaseTest;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+
 import org.openqa.selenium.Dimension;
 import static com.automation.pages.TestData.*;
 
 public class UI_UXtests extends BaseTest {
-    @Before
+    @BeforeEach
     public void setUp() {
     super.setUp();
     inventoryPage = loginPage.successfulLoginAsStandardUser();
@@ -16,34 +18,24 @@ public class UI_UXtests extends BaseTest {
 
     @Test
     public void logoAndHeaderVisibility() {
-        Assert.assertTrue("logo is not visible on the page",
-                inventoryPage.isLogoVisible());
-        Assert.assertTrue("the header title is not visible",
-                inventoryPage.isHeaderVisible());
-        Assert.assertEquals("the header title is wrong",
-                expectedInventoryTitle, inventoryPage.getHeading());
+        Assertions.assertTrue(inventoryPage.isLogoVisible(), "logo is not visible on the page");
+        Assertions.assertTrue(inventoryPage.isHeaderVisible(), "the header title is not visible");
+        Assertions.assertEquals(expectedInventoryTitle, inventoryPage.getHeading(), "the header title is wrong");
     }
 
     @Test
     public void browserWindowResizing() throws InterruptedException {
-    Assert.assertTrue("Inventory list is not displayed",
-            inventoryPage.isInventoryContainerVisible());
+        Assertions.assertTrue(inventoryPage.isInventoryContainerVisible(), "Inventory list is not displayed");
 
-    driver.manage().window().setSize(new Dimension(375, 667));
-    Assert.assertTrue("burger menu like a button should be visible in mobile view",
-            inventoryPage.isBurgerMenuVisible());
-    Assert.assertTrue("Inventory list is not displayed",
-                inventoryPage.isInventoryContainerVisible());
-    Assert.assertTrue("add to cart button is not clickable",
-            inventoryPage.isAddToCartButtonClickable());
+        driver.manage().window().setSize(new Dimension(375, 667));
+        Assertions.assertTrue(inventoryPage.isBurgerMenuVisible(), "burger menu like a button should be visible in mobile view");
+        Assertions.assertTrue(inventoryPage.isInventoryContainerVisible(), "Inventory list is not displayed");
+        Assertions.assertTrue(inventoryPage.isAddToCartButtonClickable(), "add to cart button is not clickable");
 
-    driver.manage().window().setSize(new Dimension(1280, 800));
-        Assert.assertTrue("burger menu is not visible after resizing",
-                inventoryPage.isBurgerMenuVisible());
-        Assert.assertTrue("Inventory list is not displayed after resizing",
-                inventoryPage.isInventoryContainerVisible());
-        Assert.assertTrue("add to cart button is not clickable after resizing",
-                inventoryPage.isAddToCartButtonClickable());
+        driver.manage().window().setSize(new Dimension(1280, 800));
+        Assertions.assertTrue(inventoryPage.isBurgerMenuVisible(), "burger menu is not visible after resizing");
+        Assertions.assertTrue(inventoryPage.isInventoryContainerVisible(), "Inventory list is not displayed after resizing");
+        Assertions.assertTrue(inventoryPage.isAddToCartButtonClickable(), "add to cart button is not clickable after resizing");
     }
 
     @Test
@@ -58,8 +50,8 @@ public class UI_UXtests extends BaseTest {
         String afterColor = inventoryPage.getButtonClass(specificProductName);
         System.out.println("After adding to cart: " + afterText + ", " + afterColor);
 
-        Assert.assertEquals("Remove", afterText);
-        Assert.assertNotEquals("Button color should change after adding to cart", beforeColor, afterColor);
+        Assertions.assertEquals(afterText, "Remove");
+        Assertions.assertNotEquals("Button color should change after adding to cart", beforeColor, afterColor);
 
         cartPage = inventoryPage.openCartByClickOnCartBadge();
         cartPage.removeFromTheCart();
@@ -69,8 +61,8 @@ public class UI_UXtests extends BaseTest {
         String finalColor = inventoryPage.getButtonClass(specificProductName);
         System.out.println("After removing: " + finalText + ", " + finalColor);
 
-        Assert.assertEquals("Add to cart", finalText);
-        Assert.assertEquals("Button color should return to original", beforeColor, finalColor);
+        Assertions.assertEquals(finalText, "Add to cart");
+        Assertions.assertEquals(beforeColor, finalColor, "Button color should return to original");
 
     }
 
