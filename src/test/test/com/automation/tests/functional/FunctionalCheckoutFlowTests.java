@@ -1,14 +1,16 @@
 package com.automation.tests.functional;
 
 import com.automation.tests.BaseTest;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static com.automation.pages.TestData.*;
 
+@Epic("Checkout")
+@Tag("Regression") @Tag("Functional")
 public class FunctionalCheckoutFlowTests extends BaseTest {
 
     @BeforeEach
@@ -18,6 +20,10 @@ public class FunctionalCheckoutFlowTests extends BaseTest {
     }
 
     @Test
+    @Feature("Order completion")
+    @Story("Display thank you message after purchase")
+    @Severity(SeverityLevel.BLOCKER)
+    @TmsLink("TC-020")
     public void fullPurchaseFlow() {
         inventoryPage.addToCartAction();
         cartPage = inventoryPage.openCartByClickOnCartBadge();
@@ -30,6 +36,10 @@ public class FunctionalCheckoutFlowTests extends BaseTest {
     }
 
     @Test
+    @Feature("Form validation")
+    @Story("Show error message for empty checkout fields")
+    @Severity(SeverityLevel.CRITICAL)
+    @TmsLink("TC-021")
     public void checkoutFormValidation() {
         inventoryPage.addToCartAction();
         cartPage = inventoryPage.openCartByClickOnCartBadge();
@@ -39,6 +49,10 @@ public class FunctionalCheckoutFlowTests extends BaseTest {
     }
 
     @Test
+    @Feature("Order summary")
+    @Story("Validations for subtotal, tax and total calculations")
+    @Severity(SeverityLevel.NORMAL)
+    @TmsLink("TC-22")
     public void totalPriceWithTaxIsCalculatedCorrectly() {
         inventoryPage.add3ItemsToTheCart();
         cartPage = inventoryPage.openCartByClickOnCartBadge();

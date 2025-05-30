@@ -4,10 +4,12 @@ import com.automation.tests.BaseTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-@Epic("Cart functionality")
-@Feature("Cart management")
+@Tag("Regression") @Tag("Functional")
+@Epic("Cart")
+@Feature("Add/Remove items")
 public class FunctionalCartTests extends BaseTest {
 
 
@@ -17,8 +19,9 @@ public class FunctionalCartTests extends BaseTest {
         inventoryPage = loginPage.successfulLoginAsStandardUser();
     }
 
-    @Story("Remove item from cart")
+    @Story("Remove one item from cart")
     @Severity(SeverityLevel.NORMAL)
+    @TmsLink("TC-018")
     @Description("Verify that removing one item updates the cart correctly")
     @Test
     public void removeOneItemFromCart() {
@@ -30,7 +33,7 @@ public class FunctionalCartTests extends BaseTest {
 
     @Story("Cart state persistence")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Verify that the cart state persists after navigation to checkout")
+    @TmsLink("TC-019")
     @Test
     public void cartStatePersistsAcrossNavigation() {
         inventoryPage.addToCartAction();

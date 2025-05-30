@@ -1,15 +1,15 @@
 package com.automation.tests.functional;
 
 import com.automation.tests.BaseTest;
-import org.junit.jupiter.api.*;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Tag("Regression") @Tag("Functional")
 public class FunctionalInventoryTests extends BaseTest {
 
     @BeforeEach
@@ -19,6 +19,11 @@ public class FunctionalInventoryTests extends BaseTest {
     }
 
     @Test
+    @Epic("Product List Page (PLP)")
+    @Feature("Sorting and filtering")
+    @Story("Sort product by price ascending")
+    @Severity(SeverityLevel.NORMAL)
+    @TmsLink("TC-014")
     public void sortProductsByPriceAscending() {
         inventoryPage.sortByPriceFromLowToHigh();
         List<Double> actualSortedPrices = inventoryPage.getAllProductPrices();
@@ -28,6 +33,11 @@ public class FunctionalInventoryTests extends BaseTest {
     }
 
     @Test
+    @Epic("Product List Page (PLP)")
+    @Feature("Sorting and filtering")
+    @Story("Sort product by name descending")
+    @Severity(SeverityLevel.MINOR)
+    @TmsLink("TC-015")
     public void sortProductsByNameDescending() {
         inventoryPage.sortByNameFromZtoA();
         List<String> actualSortedNames = inventoryPage.getAllNames();
@@ -37,6 +47,11 @@ public class FunctionalInventoryTests extends BaseTest {
     }
 
     @Test
+    @Epic("Product Details Page (PDP)")
+    @Feature("Product info display")
+    @Story("View product details")
+    @Severity(SeverityLevel.NORMAL)
+    @TmsLink("TC-016")
     public void productDetailsView() {
         inventoryProductDetails = inventoryPage.openProductDetailList();
         Assertions.assertTrue(inventoryProductDetails.isNamePresence(), "product name is not present");
@@ -46,6 +61,11 @@ public class FunctionalInventoryTests extends BaseTest {
     }
 
     @Test
+    @Epic("Cart")
+    @Feature("Add/Remove items")
+    @Story("Add several items to cart")
+    @Severity(SeverityLevel.CRITICAL)
+    @TmsLink("TC-017")
     public void addMultipleItemsToCart() {
         inventoryPage.add3ItemsToTheCart();
         Assertions.assertEquals(3, inventoryPage.getItemAmountFromCart(), "there were added 3 items but displayed not 3");

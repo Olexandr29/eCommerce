@@ -1,23 +1,21 @@
-
 package com.automation.tests.smoke;
 
 import com.automation.tests.BaseTest;
-import org.junit.jupiter.api.Assertions;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-
-
-
 import static com.automation.pages.TestData.*;
 
+@Epic("Authentication")
+@Tag("Regression") @Tag("Smoke")
 public class LoginTests extends BaseTest {
-//    @Epic("Login Tests")
-//    @Feature("Successful Login")
-//    @Story("Login with Valid Credentials")
-//    @Severity(SeverityLevel.BLOCKER)
+
+    @Feature("Login")
+    @Story("Login with Valid Credentials")
+    @Severity(SeverityLevel.BLOCKER)
+    @TmsLink("TC-001")
+    @DisplayName("Successful login with valid credentials")
     @Test
     public void successfulLoginTest() {
         loginPage.enterCredentials(standardUsername, password);
@@ -26,11 +24,12 @@ public class LoginTests extends BaseTest {
         Assertions.assertTrue(inventoryPage.getHeading().equalsIgnoreCase(expectedInventoryTitle), "the title is wrong");
     }
 
-//    @Epic("Login Tests")
-//    @Feature("Negative Login")
-//    @Story("Login with Locked out user")
-//    @Severity(SeverityLevel.CRITICAL)
- @Test
+    @Feature("Login")
+    @Story("Login with Locked user")
+    @Severity(SeverityLevel.CRITICAL)
+    @TmsLink("TC-002")
+    @DisplayName("Unsuccessful login with locked user")
+    @Test
     public void unsuccessfulLoginWithLockedUser() {
      loginPage.enterCredentials(lockedUser, password);
      Assertions.assertTrue(loginPage.loginWithInvalidCredentials().contains(expectedErrMsgForLockedUser), "the error message for locked user is wrong");

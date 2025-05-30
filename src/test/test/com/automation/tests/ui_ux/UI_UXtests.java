@@ -1,14 +1,16 @@
 package com.automation.tests.ui_ux;
 
 import com.automation.tests.BaseTest;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-
 import org.openqa.selenium.Dimension;
 import static com.automation.pages.TestData.*;
 
+@Epic("UI and UX validation")
+@Tag("Regression") @Tag("UI/UX")
 public class UI_UXtests extends BaseTest {
     @BeforeEach
     public void setUp() {
@@ -17,6 +19,10 @@ public class UI_UXtests extends BaseTest {
     }
 
     @Test
+    @Feature("Element visibility")
+    @Story("Header and branding elements must be clearly visible to user")
+    @Severity(SeverityLevel.NORMAL)
+    @TmsLink("TC-025")
     public void logoAndHeaderVisibility() {
         Assertions.assertTrue(inventoryPage.isLogoVisible(), "logo is not visible on the page");
         Assertions.assertTrue(inventoryPage.isHeaderVisible(), "the header title is not visible");
@@ -24,6 +30,10 @@ public class UI_UXtests extends BaseTest {
     }
 
     @Test
+    @Feature("Responsive layout")
+    @Story("Layout must adapt between desktop and mobile views without breaking functionality")
+    @Severity(SeverityLevel.MINOR)
+    @TmsLink("TC-026")
     public void browserWindowResizing() throws InterruptedException {
         Assertions.assertTrue(inventoryPage.isInventoryContainerVisible(), "Inventory list is not displayed");
 
@@ -39,6 +49,10 @@ public class UI_UXtests extends BaseTest {
     }
 
     @Test
+    @Feature("Button interaction")
+    @Story("Add to cart button should reflect product status to the user visually")
+    @Severity(SeverityLevel.TRIVIAL)
+    @TmsLink("TC-027")
     public void buttonStateChangeOnInteraction() {
         String beforeText = inventoryPage.getTextOfTheButton(specificProductName);
         String beforeColor = inventoryPage.getButtonClass(specificProductName);
