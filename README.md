@@ -1,3 +1,5 @@
+Add more info for Allure report
+
 Migrate from jUnit4 to jUnit5 and create Allure Report
 for all these 30 tc
 
