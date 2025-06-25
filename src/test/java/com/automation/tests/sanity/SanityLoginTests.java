@@ -5,6 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+
 import static com.automation.pages.TestData.*;
 
 @Epic("Authentication")

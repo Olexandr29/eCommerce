@@ -108,4 +108,5 @@ public class BasePage {
     public void maximize() {
         driver.manage().window().maximize();
     }
+
 }

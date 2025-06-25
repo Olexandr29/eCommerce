@@ -5,11 +5,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+
 import static com.automation.pages.TestData.*;
 
 @Epic("Authentication")
 @Tag("Regression") @Tag("Smoke")
-public class LoginTests extends BaseTest {
+public class SmokeLoginTests extends BaseTest {
 
     @Feature("Login")
     @Story("Login with Valid Credentials")
@@ -33,6 +34,6 @@ public class LoginTests extends BaseTest {
     public void unsuccessfulLoginWithLockedUser() {
      loginPage.enterCredentials(lockedUser, password);
      Assertions.assertTrue(loginPage.loginWithInvalidCredentials().contains(expectedErrMsgForLockedUser), "the error message for locked user is wrong");
- }
+    }
 
 }

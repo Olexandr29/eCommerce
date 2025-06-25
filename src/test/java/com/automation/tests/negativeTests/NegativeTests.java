@@ -3,6 +3,7 @@ package com.automation.tests.negativeTests;
 import com.automation.tests.BaseTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+
 import static com.automation.pages.TestData.*;
 
 @Epic("Security and Validation")

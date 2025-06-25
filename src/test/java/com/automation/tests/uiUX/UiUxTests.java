@@ -1,4 +1,4 @@
-package com.automation.tests.ui_ux;
+package com.automation.tests.uiUX;
 
 import com.automation.tests.BaseTest;
 import io.qameta.allure.*;
@@ -10,8 +10,8 @@ import org.openqa.selenium.Dimension;
 import static com.automation.pages.TestData.*;
 
 @Epic("UI and UX validation")
-@Tag("Regression") @Tag("UI/UX")
-public class UI_UXtests extends BaseTest {
+@Tag("Regression") @Tag("uiUx")
+public class UiUxTests extends BaseTest {
     @BeforeEach
     public void setUp() {
     super.setUp();

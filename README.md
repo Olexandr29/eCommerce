@@ -1,3 +1,9 @@
+Generate such Allure report data: Environment, Categories and Executors  
+
+Make cross-browser testing for Chrome, Mozilla Firefox and Edge
+
+Run tests by tags in order: smoke, sanity, functional and ui/ux with negative
+
 Add more info for Allure report
 
 Migrate from jUnit4 to jUnit5 and create Allure Report

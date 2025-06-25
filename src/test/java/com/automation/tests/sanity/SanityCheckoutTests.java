@@ -3,6 +3,7 @@ package com.automation.tests.sanity;
 import com.automation.tests.BaseTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+
 import static com.automation.pages.TestData.*;
 @Epic("Checkout")
 @Tag("Regression") @Tag("Sanity")

@@ -7,10 +7,11 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+
 import static com.automation.pages.TestData.*;
 
 @Tag("Regression") @Tag("Smoke")
-public class InventoryTests extends BaseTest {
+public class SmokeInventoryTests extends BaseTest {
 
     @BeforeEach
     public void setUp() {
