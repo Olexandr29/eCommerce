@@ -17,8 +17,5 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
           
-      - name: Show directory content (debug)
-        run: dir
-      
-      - name: Run tests with Maven from src folder
-        run: mvn -f D:/a/Automation/Automation/src/pom.xml clean test
+      - name: Run tests with Maven
+        run: mvn clean test
