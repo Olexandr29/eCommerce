@@ -21,4 +21,4 @@ jobs:
         run: dir
       
       - name: Run tests with Maven from src folder
-        run: mvn -f src/pom.xml clean test
+        run: mvn -f D:/a/Automation/Automation/src/pom.xml clean test
