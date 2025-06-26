@@ -1,3 +1,7 @@
+Create and run:
+local workflow
+remote workflow
+
 Generate such Allure report data: Environment, Categories and Executors  
 
 Make cross-browser testing for Chrome, Mozilla Firefox and Edge
