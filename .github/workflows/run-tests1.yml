@@ -16,6 +16,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-
-      - name: Run tests with Maven
-        run: mvn clean test
+          
+      - name: Show directory content (debug)
+        run: dir
+      
+      - name: Run tests with Maven from src folder
+        run: |
+          cd src
+          mvn clean test
