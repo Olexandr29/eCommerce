@@ -1,4 +1,4 @@
-name: Run JUnit5 Tests on Windows
+name: Run JUnit5 Tests
 
 on:
   workflow_dispatch:
@@ -18,4 +18,4 @@ jobs:
           java-version: '21'
           
       - name: Run tests with Maven
-        run: mvn clean test
+        run: mvn -f pom.xml clean test
