@@ -8,13 +8,16 @@ jobs:
     runs-on: windows-latest
 
     steps:
-
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
     - name: Debug folders
+      shell: pwsh
       run: |
-        echo "Current dir:"
-        pwd
-        echo "Files and folders:"
-        dir /s /b
+        Write-Host "Current dir:"
+        Get-Location
+        Write-Host "Files and folders:"
+        Get-ChildItem -Recurse
  
     - name: Run tests with Maven
       working-directory: ${{ github.workspace }}
