@@ -10,13 +10,24 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@4
+      with:
+        distribution: 'temurin'
+        java-version: '21'   
       
-    - name: Debug folders
+    - name: fast Debug, current folder and pom.xml
       shell: pwsh
       run: |
         Write-Host "Current dir:"
         Get-Location
-        Write-Host "Files and folders:"
+        Write-Host "`n Checking for pom.xml:"
+        if (Test-Path "./pom.xml) {
+        Write-Host "Found pom.xml"
+        } else {
+        White Host "pom.xml not found"
+        }
         Get-ChildItem -Recurse
  
     - name: Run tests with Maven
