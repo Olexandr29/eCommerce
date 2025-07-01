@@ -1,4 +1,4 @@
-name: Run JUnit5 Tests
+name: Manually triggered JUnit5 tests on Windows
 
 on:
   workflow_dispatch:
@@ -16,20 +16,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'   
-      
-    - name: fast Debug, current folder and pom.xml
-      shell: pwsh
-      run: |
-        Write-Host "Current dir:"
-        Get-Location
-        Write-Host "`n Checking for pom.xml:"
-        if (Test-Path "./pom.xml") {
-        Write-Host "Found pom.xml"
-        } else {
-        White-Host "pom.xml not found"
-        }
-        Get-ChildItem -Recurse
- 
+
     - name: Run tests with Maven
       working-directory: ${{ github.workspace }}
       run: mvn clean test
