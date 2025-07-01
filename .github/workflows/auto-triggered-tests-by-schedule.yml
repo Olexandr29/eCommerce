@@ -1,0 +1,24 @@
+name: Automatically triggered Smoke tests by schedule every Tuesday and Thursday
+
+on:
+  schedule:
+    - cron: '0 9 * * 2,4'
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+
+    - name: Run Smoke tests with Maven
+      working-directory: ${{ github.workspace }}
+
+      run: mvn clean test -Dgroups=Smoke
