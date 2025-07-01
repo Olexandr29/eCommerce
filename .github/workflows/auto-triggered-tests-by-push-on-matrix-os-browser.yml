@@ -54,12 +54,7 @@ jobs:
 
     - name: Run tests with Maven
       working-directory: ${{ github.workspace }}
-      run: |
-        PROFILE_ID="profile-${{ github.run_id }}-${{ matrix.os }}-${{ matrix.browser }}"
-        if [ "${{ matrix.browser }}" = "chrome" ]; then
-          mvn clean test -Dbrowser=chrome -Dchrome.args="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/$PROFILE_ID"
-        elif [ "${{ matrix.browser }}" = "firefox" ]; then
-          mvn clean test -Dbrowser=firefox -Dfirefox.args="--headless --profile /tmp/$PROFILE_ID"
-        else
-          mvn clean test -Dbrowser=edge
-        fi
+      env:
+        BROWSER: ${{ matrix.browser }}
+        CHROME_ARGS: ${{ env.CHROME_ARGS }}
+      run: mvn clean test
