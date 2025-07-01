@@ -6,6 +6,7 @@ on:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         browser: [chrome, firefox, edge]
@@ -27,11 +28,17 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
 
-    - name: Install Chrome
-      if: matrix.browser == 'chrome'
+    - name: Install Chrome (Linux)
+      if: matrix.browser == 'chrome' && runner.os == 'Linux'
       uses: browser-actions/setup-chrome@v1
       with:
         install-dependencies: true
+
+    - name: Install Chrome (non-Linux)
+      if: matrix.browser == 'chrome' && runner.os != 'Linux'
+      uses: browser-actions/setup-chrome@v1
+
+
 
     - name: Install Firefox
       if: matrix.browser == 'firefox'
