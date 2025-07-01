@@ -1,37 +1,3 @@
-/*
-package com.automation.tests.utils;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-
-public class DriverFactory {
-    public static WebDriver createDriver(String browser) {
-        switch (browser.toLowerCase()) {
-            case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--incognito");
-                return new ChromeDriver(chromeOptions);
-
-            case "firefox":
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("-private");
-                return new FirefoxDriver(firefoxOptions);
-
-            case "edge":
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("-inprivate");
-                return new EdgeDriver(edgeOptions);
-
-            default:
-                throw new IllegalArgumentException("Unsupported browser: " + browser);
-        }
-    }
-} */
 package com.automation.tests.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -41,11 +7,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 public class DriverFactory {
 
@@ -55,33 +23,33 @@ public class DriverFactory {
         switch (browserName.toLowerCase()) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("-private");
+
+                String firefoxArgs = System.getProperty("firefox.args");
+                if (firefoxArgs != null) {
+                    Arrays.stream(firefoxArgs.split(" ")).forEach(firefoxOptions::addArguments);
+                }
+
+                driver = new FirefoxDriver(firefoxOptions);
                 break;
+
             case "edge":
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 break;
+
             case "chrome":
             default:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--incognito");
+                String chromeArgs = System.getProperty("chrome.args");
+                if (chromeArgs != null) {
+                    Arrays.stream(chromeArgs.split(" ")).forEach(chromeOptions::addArguments);
+                }
                 driver = new ChromeDriver(chromeOptions);
                 break;
-
-
-            //            case "brave":
-//                WebDriverManager.chromedriver().setup();
-//                ChromeOptions braveOptions = new ChromeOptions();
-//                braveOptions.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
-//                driver = new ChromeDriver(braveOptions);
-//                break;
-
-//            case "opera":
-//                WebDriverManager.operadriver().setup();
-//                driver = new OperaDriver();
-//                break;
-
         }
 
         generateAllureEnvironment(driver, browserName);
