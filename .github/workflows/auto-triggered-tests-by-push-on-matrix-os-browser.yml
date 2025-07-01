@@ -40,10 +40,6 @@ jobs:
       if: matrix.browser == 'chrome' && runner.os != 'Linux'
       uses: browser-actions/setup-chrome@v1
 
-    - name: Set Chrome options as env var
-      if: matrix.browser == 'chrome'
-      run: echo "CHROME_ARGS=--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/profile-$RANDOM" >> $GITHUB_ENV
-
     - name: Install Firefox
       if: matrix.browser == 'firefox'
       uses: browser-actions/setup-firefox@v1
@@ -58,5 +54,4 @@ jobs:
       working-directory: ${{ github.workspace }}
       env:
         BROWSER: ${{ matrix.browser }}
-        CHROME_ARGS: ${{ env.CHROME_ARGS }}
       run: mvn clean test
