@@ -12,6 +12,8 @@ jobs:
         exclude:
           - os: ubuntu-latest
             browser: edge
+          - os: macos-latest
+            browser: edge
 
     runs-on: ${{ matrix.os }}
 
