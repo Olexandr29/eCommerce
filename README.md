@@ -1,3 +1,5 @@
+Create a remote (GitHub) workflow for cross-browser and cross-platform testing, triggered by push
+
 Create and run:
 local workflow
 remote workflow
