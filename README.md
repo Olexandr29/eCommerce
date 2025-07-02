@@ -1,3 +1,5 @@
+Create workflow for Linux&Chrome, triggered by push
+
 [![Automatically triggered JUnit5 tests by push on matrix OS and Browsers](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-push-on-matrix-os-browser.yml/badge.svg)](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-push-on-matrix-os-browser.yml)
 
 Create a remote (GitHub) workflow for cross-browser and cross-platform testing, triggered by push
