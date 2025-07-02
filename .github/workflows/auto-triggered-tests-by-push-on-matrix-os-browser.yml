@@ -15,8 +15,6 @@ jobs:
             browser: edge
           - os: macos-latest
             browser: edge
-          - os: ubuntu-latest
-            browser: chrome
 
     runs-on: ${{ matrix.os }}
 
@@ -29,6 +27,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'
+
+    - name: Install Chrome (Linux)
+      if: matrix.browser == 'chrome' && runner.os == 'Linux'
+      uses: browser-actions/setup-chrome@v1
+      with:
+        install-dependencies: true
 
     - name: Install Chrome (non-Linux)
       if: matrix.browser == 'chrome' && runner.os != 'Linux'
@@ -46,6 +50,10 @@ jobs:
 
     - name: Run tests with Maven
       working-directory: ${{ github.workspace }}
-      env:
-        BROWSER: ${{ matrix.browser }}
-      run: mvn clean test
+      run: |
+        if [ "${{ matrix.browser }}" = "chrome" ]; then
+             PROFILE_DIR=$(mktemp -d)
+             mvn clean test -Dbrowser=chrome -Dchrome.args="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
+           else        
+          mvn clean test
+        fi
