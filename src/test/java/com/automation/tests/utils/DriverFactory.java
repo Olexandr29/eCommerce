@@ -66,6 +66,7 @@ public class DriverFactory {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--incognito");
+                chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
                 driver = new ChromeDriver(chromeOptions);
                 break;
 
