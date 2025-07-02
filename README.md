@@ -1,5 +1,7 @@
 Create a remote (GitHub) workflow for cross-browser and cross-platform testing, triggered by push
 
+[![Manually triggered JUnit5 tests on Windows](https://github.com/Olexandr29/Automation/actions/workflows/manually-triggered-run-tests-on-windows.yml/badge.svg)](https://github.com/Olexandr29/Automation/actions/workflows/manually-triggered-run-tests-on-windows.yml)
+
 Create and run:
 local workflow
 remote workflow
