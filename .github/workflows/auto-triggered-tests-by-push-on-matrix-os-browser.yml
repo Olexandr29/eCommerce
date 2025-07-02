@@ -16,7 +16,7 @@ jobs:
           - os: macos-latest
             browser: edge
           - os: ubuntu-latest
-            browser: firefox
+            browser: chrome
 
     runs-on: ${{ matrix.os }}
 
@@ -29,12 +29,6 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'
-
-    - name: Install Chrome (Linux)
-      if: matrix.browser == 'chrome' && runner.os == 'Linux'
-      uses: browser-actions/setup-chrome@v1
-      with:
-        install-dependencies: true
 
     - name: Install Chrome (non-Linux)
       if: matrix.browser == 'chrome' && runner.os != 'Linux'
