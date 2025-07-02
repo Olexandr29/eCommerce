@@ -65,6 +65,7 @@ public class DriverFactory {
             default:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--incognito");
 
                 String chromeArgs = System.getProperty("chrome.args");
                 if (chromeArgs != null) {
@@ -72,9 +73,12 @@ public class DriverFactory {
                         chromeOptions.addArguments(arg);
                     }
                 } else {
-                    chromeOptions.addArguments("--incognito");
+                    chromeOptions.addArguments("--headless=new");
+                    chromeOptions.addArguments("--no-sandbox");
+                    chromeOptions.addArguments("--disable-dev-shm-usage");
+                    chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
                 }
-   //                 chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
+
                 driver = new ChromeDriver(chromeOptions);
                 break;
 
