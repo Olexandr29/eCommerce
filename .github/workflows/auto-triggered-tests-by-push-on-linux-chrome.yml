@@ -24,4 +24,4 @@ jobs:
 
     - name: Run tests with Maven
       working-directory: ${{ github.workspace }}
-      run: mvn clean test
+      run: mvn clean test -Dbrowser=chrome
