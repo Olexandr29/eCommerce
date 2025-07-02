@@ -50,10 +50,18 @@ jobs:
 
     - name: Run tests with Maven
       working-directory: ${{ github.workspace }}
+      shell: bash
       run: |
-        if [ "${{ matrix.browser }}" = "chrome" ]; then
-             PROFILE_DIR=$(mktemp -d)
-             mvn clean test -Dbrowser=chrome -Dchrome.args="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
-           else        
-          mvn clean test
-        fi
+        PROFILE_DIR=$(mktemp -d)
+        
+         if [ "${{ matrix.browser }}" = "chrome" ]; then
+            CHROME_ARGS="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
+            mvn clean test -Dbrowser=chrome -Dchrome.args="$CHROME_ARGS"
+
+          elif [ "${{ matrix.browser }}" = "firefox" ]; then
+            mvn clean test -Dbrowser=firefox -Dfirefox.options="--headless"
+
+          elif [ "${{ matrix.browser }}" = "edge" ]; then
+            EDGE_ARGS="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
+            mvn clean test -Dbrowser=edge -Dedge.args="$EDGE_ARGS"
+          fi
