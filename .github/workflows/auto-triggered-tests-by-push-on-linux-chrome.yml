@@ -24,4 +24,7 @@ jobs:
 
     - name: Run tests with Maven
       working-directory: ${{ github.workspace }}
-      run: mvn clean test -Dbrowser=chrome
+      run: |
+        PROFILE_DIR=$(mktemp -d)
+        CHROME_ARGS="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
+        mvn clean test -Dbrowser=chrome -Dchrome.args="$CHROME_ARGS"

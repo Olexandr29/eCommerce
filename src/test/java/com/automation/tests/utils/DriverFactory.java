@@ -65,8 +65,16 @@ public class DriverFactory {
             default:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--incognito");
-                chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
+
+                String chromeArgs = System.getProperty("chrome.args");
+                if (chromeArgs != null) {
+                    for (String arg : chromeArgs.split(" ")) {
+                        chromeOptions.addArguments(arg);
+                    }
+                } else {
+                    chromeOptions.addArguments("--incognito");
+                }
+   //                 chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
                 driver = new ChromeDriver(chromeOptions);
                 break;
 
