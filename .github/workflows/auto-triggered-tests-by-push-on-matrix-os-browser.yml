@@ -54,14 +54,18 @@ jobs:
       run: |
         PROFILE_DIR=$(mktemp -d)
         
-         if [ "${{ matrix.browser }}" = "chrome" ]; then
+        if [ "${{ matrix.browser }}" = "chrome" ]; then
+          if [[ "${{ matrix.os }}" == "ubuntu-latest" || "${{ matrix.os }}" == "macos-latest" ]]; then
             CHROME_ARGS="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
             mvn clean test -Dbrowser=chrome -Dchrome.args="$CHROME_ARGS"
-
-          elif [ "${{ matrix.browser }}" = "firefox" ]; then
+         else
+          mvn clean test -Dbrowser=chrome
+          fi
+        
+        elif [ "${{ matrix.browser }}" = "firefox" ]; then
             mvn clean test -Dbrowser=firefox -Dfirefox.options="--headless"
 
-          elif [ "${{ matrix.browser }}" = "edge" ]; then
+        elif [ "${{ matrix.browser }}" = "edge" ]; then
             EDGE_ARGS="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
             mvn clean test -Dbrowser=edge -Dedge.args="$EDGE_ARGS"
-          fi
+        fi
