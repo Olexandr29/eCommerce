@@ -1,3 +1,5 @@
+Add Allure report for cross-browser and cross-platform testing workflow
+
 [![Automatically triggered Smoke tests by schedule every Tuesday and Thursday](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-schedule.yml/badge.svg)](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-schedule.yml)
 
 Create a workflow for running Smoke tests on Windows, triggered by schedule every Tuesday and Thursday
