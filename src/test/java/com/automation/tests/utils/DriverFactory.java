@@ -1,37 +1,4 @@
-/*
-package com.automation.tests.utils;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-
-public class DriverFactory {
-    public static WebDriver createDriver(String browser) {
-        switch (browser.toLowerCase()) {
-            case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--incognito");
-                return new ChromeDriver(chromeOptions);
-
-            case "firefox":
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("-private");
-                return new FirefoxDriver(firefoxOptions);
-
-            case "edge":
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("-inprivate");
-                return new EdgeDriver(edgeOptions);
-
-            default:
-                throw new IllegalArgumentException("Unsupported browser: " + browser);
-        }
-    }
-} */
 package com.automation.tests.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -73,10 +40,12 @@ public class DriverFactory {
                         chromeOptions.addArguments(arg);
                     }
                 } else {
-                    chromeOptions.addArguments("--headless=new");
-                    chromeOptions.addArguments("--no-sandbox");
-                    chromeOptions.addArguments("--disable-dev-shm-usage");
-                    chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
+                    String tmDir = System.getProperty("java.io.tmpdir");
+                    String profilePath = tmDir + File.separator + "chrome-profile-" + System.currentTimeMillis();
+//                    chromeOptions.addArguments("--headless=new");
+//                    chromeOptions.addArguments("--no-sandbox");
+//                    chromeOptions.addArguments("--disable-dev-shm-usage");
+                    chromeOptions.addArguments("--user-data-dir=" + profilePath);
                 }
 
                 driver = new ChromeDriver(chromeOptions);
