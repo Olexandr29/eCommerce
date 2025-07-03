@@ -1,6 +1,10 @@
+[![Automatically triggered Smoke tests by schedule every Tuesday and Thursday](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-schedule.yml/badge.svg)](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-schedule.yml)
+
+Create a workflow for running Smoke tests on Windows, triggered by schedule every Tuesday and Thursday
+
 [![Auto triggered JUnit5 tests on Linux with Chrome](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-push-on-linux-chrome.yml/badge.svg)](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-push-on-linux-chrome.yml)
 
-Create workflow for Linux&Chrome, triggered by push
+Create a workflow for Linux&Chrome, triggered by push
 
 [![Automatically triggered JUnit5 tests by push on matrix OS and Browsers](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-push-on-matrix-os-browser.yml/badge.svg)](https://github.com/Olexandr29/Automation/actions/workflows/auto-triggered-tests-by-push-on-matrix-os-browser.yml)
 
