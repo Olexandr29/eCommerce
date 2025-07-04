@@ -70,16 +70,19 @@ jobs:
             mvn clean test -Dbrowser=edge -Dedge.args="$EDGE_ARGS"
         fi
 
-    - name: Install Allure CLI
+    - name: List Allure result files
       run: |
-        curl -o allure.tgz -L https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
-        tar -xzf allure.tgz
-        sudo mv allure-2.27.0 /opt/allure
-        sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+         echo "Contents of target/allure-results:"
+         ls -la target/allure-results || echo "No allure results found"
 
-    - name: Generate Allure Report
-      run: |
-        allure generate target/allure-results --clean -o target/allure-report
+    - name: Publish Allure Report
+      uses: simple-elf/allure-report-action@v1.7
+      if: always()
+      with:
+        results-dir: target/allure-results
+        report-dir: target/allure-report
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload Allure Report as Artifact
       uses: actions/upload-artifact@v4
