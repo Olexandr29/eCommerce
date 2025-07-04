@@ -2,6 +2,8 @@ name: Run tests and publish Allure report on GitHub Pages
 
 on: push
 
+permissions:
+  contents: write
 jobs:
   test:
     runs-on: ubuntu-latest
