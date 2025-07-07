@@ -70,12 +70,27 @@ jobs:
             mvn clean test -Dbrowser=edge -Dedge.args="$EDGE_ARGS"
         fi
 
-    - name: Download Allure CLI
+    - name: Get latest Allure CLI version
+      id: allure-version
       shell: bash
       run: |
-        curl -L -o allure.zip https://github.com/allure-framework/allure2/releases/latest/download/allure-2.24.0.zip
-        unzip allure.zip -d allure
-        chmod +x allure/bin/allure
+        VERSION=$(curl -s https://api.github.com/repos/allure-framework/allure2/releases/latest | grep tag_name | cut -d '"' -f4)
+        echo "Latest Allure version is $VERSION"
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Download Allure CLI ${{ steps.allure-version.outputs.version }}
+      shell: bash
+      run: |
+        VERSION=${{ steps.allure-version.outputs.version }}
+        curl -L -o allure.zip https://github.com/allure-framework/allure2/releases/download/$VERSION/allure-$VERSION.zip
+              
+        if unzip -t allure.zip >/dev/null 2>&1; then
+          unzip allure.zip -d allure
+          chmod +x allure/bin/allure
+        else
+          echo "Allure archive is invalid or failed to unzip"
+          exit 1
+        fi
 
     - name: Generate Allure Report
       shell: bash
