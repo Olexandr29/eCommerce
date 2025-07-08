@@ -84,10 +84,8 @@ jobs:
 
     - name: Download Allure CLI
       shell: bash
-      env:
-        VERSION=${{ steps.allure-version.outputs.version }}
       run: |
-        curl -L -o allure.zip https://github.com/allure-framework/allure2/releases/download/$VERSION/allure-$VERSION.zip
+        curl -L -o allure.zip https://github.com/allure-framework/allure2/releases/download/${{ steps.allure-version.outputs.version }}/allure-${{ steps.allure-version.outputs.version }}.zip
         unzip allure.zip -d allure
 
         BIN_PATH=$(find allure -type f -name allure -path "*bin/*" | head -n 1)
