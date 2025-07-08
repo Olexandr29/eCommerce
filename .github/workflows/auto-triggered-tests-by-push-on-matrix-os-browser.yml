@@ -70,6 +70,26 @@ jobs:
             mvn clean test -Dbrowser=edge -Dedge.args="$EDGE_ARGS"
         fi
 
+    - name: Add Allure Executor info
+      shell: bash
+      run: |
+        mkdir -p target/allure-results
+        BROWSER="${{ matrix.browser }}"
+        OS="${{ matrix.os }}"
+        DATE=$(date +'%Y-%m-%d %H:%M:%S')
+        cat <<EOF > target/allure-results/executor.json
+        {
+        "name": "GitHub Actions",
+        "type": "github",
+        "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+        "buildOrder": 1,
+        "buildName": "${BROWSER} on ${OS} — ${DATE}",
+        "buildUrl": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+        "reportUrl": "",
+        "reportName": "Allure Report"
+        }
+        EOF
+
     - name: Get latest Allure CLI version
       id: allure-version
       shell: bash
