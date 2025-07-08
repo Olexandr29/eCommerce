@@ -74,10 +74,19 @@ jobs:
       id: allure-version
       shell: bash
       run: |
+        if ! command -v jq >/dev/null; then
+          echo "jq not found — trying to install it..."
+          if [[ "$(uname)" == "Darwin" ]]; then
+            brew install jq
+          elif [[ "$(uname -s)" == "Linux" ]]; then
+            sudo apt-get update && sudo apt-get install -y jq
+          fi
+        fi
+
         VERSION=$(curl -s https://api.github.com/repos/allure-framework/allure2/releases/latest | jq -r .tag_name)
-        if [ -z "$VERSION" ]; then
-          echo "Failed to fetch Allure version"
-          exit 1
+        if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
+           VERSION="2.34.1"
+           echo "Failed to get latest version, using fallback: $VERSION"
         fi
         echo "Latest Allure version is $VERSION"
         echo "version=$VERSION" >> $GITHUB_OUTPUT
@@ -90,6 +99,7 @@ jobs:
 
         BIN_PATH=$(find allure -type f -name allure -path "*bin/*" | head -n 1)
         if [ -z "$BIN_PATH" ]; then
+        
           echo "Allure CLI binary not found"
           exit 1
         fi
