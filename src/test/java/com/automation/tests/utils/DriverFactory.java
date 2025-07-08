@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -33,10 +34,6 @@ public class DriverFactory {
                 }
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
-            case "edge":
-                WebDriverManager.edgedriver().setup();
-                driver = new EdgeDriver();
-                break;
             case "chrome":
             default:
                 WebDriverManager.chromedriver().setup();
@@ -51,32 +48,22 @@ public class DriverFactory {
                 } else {
                     String tmDir = System.getProperty("java.io.tmpdir");
                     String profilePath = tmDir + File.separator + "chrome-profile-" + System.currentTimeMillis();
-//                    chromeOptions.addArguments("--headless=new");
-//                    chromeOptions.addArguments("--no-sandbox");
-//                    chromeOptions.addArguments("--disable-dev-shm-usage");
                     chromeOptions.addArguments("--user-data-dir=" + profilePath);
                 }
 
                 driver = new ChromeDriver(chromeOptions);
                 break;
-
-
-            //            case "brave":
-//                WebDriverManager.chromedriver().setup();
-//                ChromeOptions braveOptions = new ChromeOptions();
-//                braveOptions.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
-//                driver = new ChromeDriver(braveOptions);
-//                break;
-
-//            case "opera":
-//                WebDriverManager.operadriver().setup();
-//                driver = new OperaDriver();
-//                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            case "safari":
+                driver = new SafariDriver();
+                break;
 
         }
 
         generateAllureEnvironment(driver, browserName);
-
         AllureFilesGenerator.generateExecutorFile(driver, browserName);
         AllureFilesGenerator.generateCategoriesFile();
 

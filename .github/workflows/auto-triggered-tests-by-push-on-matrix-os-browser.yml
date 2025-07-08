@@ -9,12 +9,16 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        browser: [chrome, firefox, edge]
+        browser: [chrome, firefox, edge, safari]
         exclude:
           - os: ubuntu-latest
             browser: edge
           - os: macos-latest
             browser: edge
+          - os: ubuntu-latest
+            browser: safari
+          - os: windows-latest
+            browser: safari
 
     runs-on: ${{ matrix.os }}
 
@@ -68,6 +72,9 @@ jobs:
         elif [ "${{ matrix.browser }}" = "edge" ]; then
             EDGE_ARGS="--headless=new --no-sandbox --disable-dev-shm-usage --user-data-dir=$PROFILE_DIR"
             mvn clean test -Dbrowser=edge -Dedge.args="$EDGE_ARGS"
+        
+        elif [ "${{ matrix.browser }}" = "safari" ]; then
+        mvn clean test -Dbrowser=safari
         fi
 
     - name: Add Allure Executor info
