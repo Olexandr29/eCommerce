@@ -1,4 +1,4 @@
-[ The latest Allure report is here] (https://olexandr29.github.io/Automation/)
+[ The latest Allure report is here] (https://olexandr29.github.io/eCommerce/1/index.html)
 
 Add Allure report for cross-browser and cross-platform testing workflow
 
