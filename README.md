@@ -90,7 +90,7 @@ use:
 allure serve target/allure-results
 ```
 Look at examples on the screenshots below
-![Allure screen page without history] (1.0 Allure report without history.png)
+![Allure screen page without history](screenShots/1.0 Allure report without history.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder(not%20related%20to%20the%20project).png)
 ___
 
@@ -134,7 +134,7 @@ allure generate target/allure-results --clean -o target/allure-report
 allure open target/allure-report
 ```
 Look at examples on the screenshots below
-![Allure screen page with history] (2.0 Allure report with historytrends.png)
+![Allure screen page with history](screenShots/2.0 Allure report with historytrends.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.1%20report%20generated%20to%20Report%20folder%20insdie%20the%20project(target).png)
 ___
 For cross-browser testing and generating an Allure report with history 
@@ -145,5 +145,5 @@ Just run it and look at the Allure report with history (use the command below):
 ./autorun-by-tags-and-browser-and-generate-allure-report-with-history.ps1
 ```
 Look at examples on the screenshots below
-![Allure screen page with history (has run by script)](3.0 Allure report with history run by ps script.png)
+![Allure screen page with history (has run by script)](screenShots/3.0 Allure report with history run by ps script.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.1.%20inside%20the%20project(target)%20folder%20.png)
