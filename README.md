@@ -27,26 +27,59 @@
 - ✅ **UI/UX tests**: responsive layout, button states, logo
 
 ---
+
 ## ▶️ The ways of running tests (remote and local):
-### 🌐 1) Remote run via 🚀 CI/CD (GitHub Actions)
-#### ✅ Triggered:
-1) [Manually](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/manually-triggered-run-tests-on-windows.yml) 
-on Windows+Chrome 
-2) By push:
-<br>- [on Linux+Chrome + published Allure report on GitHub Pages](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/auto-triggered-by-push-on-linux-chrome-and-publish-allure-report-on-github-pages.yml)
-<br>- [on matrix OS & Browsers + published separated Allure reports as artifacts](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/auto-triggered-tests-by-push-on-matrix-os-browser.yml)
-3) [By schedule](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/auto-triggered-tests-by-schedule.yml)
-on Windows+Chrome just with tag Smoke
+### 1) 🌐 Remote run via 🚀 CI/CD (GitHub Actions)
+- #### ✅ Triggered:
+    <details>
+        <summary>Expand details about triggered methods </summary>
+  
+  -  a) [Manually](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/manually-triggered-run-tests-on-windows.yml)
+     on Windows+Chrome 
+  - b) By push:
+             <br>- [on Linux+Chrome + published Allure report on GitHub Pages](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/auto-triggered-by-push-on-linux-chrome-and-publish-allure-report-on-github-pages.yml)
+             <br>- [on matrix OS & Browsers + published separated Allure reports as artifacts](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/auto-triggered-tests-by-push-on-matrix-os-browser.yml)
+  - c) [By schedule](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/auto-triggered-tests-by-schedule.yml)
+               on Windows+Chrome just with tag Smoke
+  </details>
+    
+- #### 🧩 Matrix strategy
+    <details>
+  <summary>Expand details about matrix strategy</summary>
 
-#### 🧩 Matrix Strategy
-| OS      | Browsers               |
-|---------|------------------------|
-| Windows | Chrome, Firefox, Edge  |
-| Linux   | Chrome, Firefox        |
-| macOS   | Chrome, Firefox, Safari|
+  <table>
+    <thead>
+      <tr>
+        <th>OS</th>
+        <th>Browsers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Windows</td>
+        <td>Chrome, Firefox, Edge</td>
+      </tr>
+      <tr>
+        <td>Linux</td>
+        <td>Chrome, Firefox</td>
+      </tr>
+      <tr>
+        <td>macOS</td>
+        <td>Chrome, Firefox, Safari</td>
+      </tr>
+    </tbody>
+  </table>
 
-#### 📊 Allure Report
-[👉 Click to see the Allure report on GitHub Pages](https://olexandr29.github.io/eCommerce/)
+</details>
+   
+
+- #### 📊 Allure report
+    <details>
+    <summary> Expand details about Allure report</summary>
+
+  [👉 The lates Allure report on GitHub Pages](https://olexandr29.github.io/eCommerce/)
+    </details>
+___
 
 ### 💻 2) Local run via ⬛>_Terminal (inside IDEA)
 #### ✅ Triggered on Windows and:
@@ -55,6 +88,8 @@ on Windows+Chrome just with tag Smoke
 ```
 mvn clean test
 ```
+<details>
+<summary> click to look at other options</summary>
 **Other browser** (e.g. Firefox or Edge) use:
 ```
 mvn clean test -Dbrowser=Firefox
@@ -71,6 +106,8 @@ Specific **Browsers** and **tags** use:
 ```
 mvn clean test -Dgroups="Functional Negative" -Dbrowser="Edge Firefox"
 ```
+</details>
+
 
 #### 🧩 Local run Strategy (Options)
 | OS      | Browsers        | Tags                                    |
