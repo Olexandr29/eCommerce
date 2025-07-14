@@ -112,7 +112,7 @@ Specific **Browsers** and **tags** use:
 mvn clean test -Dgroups="Functional Negative" -Dbrowser="Edge Firefox"
 ```
 
-🔙 [click here and click on 'Expand details about manually triggered commands' to collaps the section](#triggered-manually-on-windows-and)
+🔙 [click here and click on 'Expand details about manually triggered commands' to collaps the section](https://github.com/Olexandr29/eCommerce?tab=readme-ov-file#-triggered-manually-on-windows-and)
   </details>
 
 - #### 🧩 Matrix Browser and Tags Strategy
