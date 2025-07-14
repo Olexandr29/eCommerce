@@ -73,7 +73,7 @@
 </details>
    
 
-- #### 📊 Allure report
+- #### 📊 Allure Report
     <details>
     <summary> Expand details about Allure report</summary>
 
@@ -82,17 +82,22 @@
 ___
 
 ### 💻 2) Local run via ⬛>_Terminal (inside IDEA)
-#### ✅ Triggered on Windows and:
+- #### ✅ Triggered manually on Windows and:
+<details>
+        <summary>Expand details about manually triggered commands</summary>
 
 **Chrome browser** (by default) use the command below:
 ```
 mvn clean test
 ```
-<details>
-<summary> click to look at other options</summary>
 **Other browser** (e.g. Firefox or Edge) use:
+
 ```
 mvn clean test -Dbrowser=Firefox
+```
+or
+```
+mvn clean test -Dbrowser=Edge
 ```
 **Cross-browser**(Chrome, Firefox, Edge) use:
 ```
@@ -106,15 +111,24 @@ Specific **Browsers** and **tags** use:
 ```
 mvn clean test -Dgroups="Functional Negative" -Dbrowser="Edge Firefox"
 ```
-</details>
 
+🔙 [click here and click on 'Expand details about manually triggered commands' to collaps the section](#triggered-manually-on-windows-and)
+  </details>
 
-#### 🧩 Local run Strategy (Options)
+- #### 🧩 Matrix Browser and Tags Strategy
+<details>
+<summary>Expand details about available options</summary>
+
 | OS      | Browsers        | Tags                                    |
 |---------|-----------------------|-----------------------------------|
 | Windows | Chrome, Firefox, Edge | Smoke, Sanity, Functional, Negative, UiUx |
 
-#### 📊 Allure Reports:
+</details>
+
+- #### 📊 Allure Report:
+<details>
+<summary>
+Expand details about methods to generate Allure report</summary>
 #### **Temporary:**
 
 For generating temporary Allure report (on the **temp** folder not related to the project) and without history
@@ -184,3 +198,5 @@ Just run it and look at the Allure report with history (use the command below):
 Look at examples on the screenshots below
 ![Allure screen page with history (has run by script)](screenShots/3.0 Allure report with history run by ps script.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.1.%20inside%20the%20project(target)%20folder%20.png)
+
+  </details>
