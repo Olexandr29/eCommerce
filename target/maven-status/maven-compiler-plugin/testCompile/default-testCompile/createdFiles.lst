@@ -1,0 +1,14 @@
+com\automation\tests\BaseTest.class
+com\automation\tests\functional\FunctionalCartTests.class
+com\automation\tests\utils\AllureFilesGenerator.class
+com\automation\tests\functional\FunctionalCheckoutFlowTests.class
+com\automation\tests\sanity\SanityLoginTests.class
+com\automation\tests\uiUX\UiUxTests.class
+com\automation\tests\functional\FunctionalNavigationTests.class
+com\automation\tests\smoke\SmokeInventoryTests.class
+com\automation\tests\sanity\SanityCartTests.class
+com\automation\tests\sanity\SanityCheckoutTests.class
+com\automation\tests\functional\FunctionalInventoryTests.class
+com\automation\tests\smoke\SmokeLoginTests.class
+com\automation\tests\negativeTests\NegativeTests.class
+com\automation\tests\utils\DriverFactory.class

@@ -1,0 +1,9 @@
+com\automation\pages\LoginPage.class
+com\automation\pages\InventoryProductDetails.class
+com\automation\pages\BasePage.class
+com\automation\pages\CheckoutStep2Page.class
+com\automation\pages\CartPage.class
+com\automation\pages\CheckoutStep3CompletePage.class
+com\automation\pages\TestData.class
+com\automation\pages\InventoryPage.class
+com\automation\pages\CheckoutStep1Page.class

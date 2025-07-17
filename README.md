@@ -1,7 +1,7 @@
 # 🛒 eCommerce UI Automation Testing Project
 
 ## 🎯The goal of the repo is to demonstrate the skills with:
-- Java-based UI automation testing with support for cross-browser and cross-platform execution
+- UI autotests (on Java) for cross-browser and cross-platform execution
 - CI\CD integration from scratch (no frameworks)
 - Generating and publishing Allure reports with history
 - Running tests by tags and browser combinations
@@ -85,6 +85,7 @@ ___
 - #### ✅ Triggered manually on Windows and:
 <details>
         <summary>Expand details about manually triggered commands</summary>
+<br>
 
 **Chrome browser** (by default) use the command below:
 ```
@@ -206,7 +207,7 @@ Just run it and look at the Allure report with history (use the command below):
 ```
 ./autorun-by-tags-and-browser-and-generate-allure-report-with-history.ps1
 ```
-Look at examples on the screenshots below
+Look at an example on the screenshot below
 ![Allure screen page with history (has run by script)](screenShots/3.0 Allure report with history run by ps script.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.1.%20inside%20the%20project(target)%20folder%20.png)
 
