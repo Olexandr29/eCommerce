@@ -141,7 +141,7 @@ use:
 allure serve target/allure-results
 ```
 Look at an example on the screenshot below
-![Allure screen page without history](screenShots/1.0 Allure report without history.png)
+![Allure screen page without history](./screenShots/1.0 Allure report without history.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder%20not%20related%20to%20the%20project.png)
 ___
 
@@ -197,8 +197,8 @@ allure open target/allure-report
   </details>
 
 Look at example on the screenshot below
-![Allure screen page with history](screenShots/2.0 Allure report with historytrends.png)
-[if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.1%20report%20generated%20to%20Report%20folder%20insdie%20the%20project(target).png)
+![Allure screen page with history](./screenShots/2.0 Allure report with historytrends.png)
+[if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.1%20report%20generated%20to%20Report%20folder%20insdie%20the%20project%20target.png)
 ___
 For cross-browser testing and generating an Allure report with history 
 was created the [next script](https://github.com/Olexandr29/eCommerce/blob/main/autorun-by-tags-and-browser-and-generate-allure-report-with-history.ps1)
@@ -208,7 +208,8 @@ Just run it and look at the Allure report with history (use the command below):
 ./autorun-by-tags-and-browser-and-generate-allure-report-with-history.ps1
 ```
 Look at an example on the screenshot below
-![Allure screen page with history (has run by script)](screenShots/3.0 Allure report with history run by ps script.png)
-[if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.1.%20inside%20the%20project(target)%20folder%20.png)
-
+![Allure screen page with history (has run by script)](./screenShots/3.0 Allure report with history run by ps script.png)
+[if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.1.%20inside%20the%20project%20target%20folder%20.png)
   </details>
+
+<img alt="Allure report" src="https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.0%20Allure%20report%20with%20history%20run%20by%20ps%20script.png?raw=true" width="500" style="float: left">
