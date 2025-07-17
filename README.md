@@ -111,7 +111,6 @@ Specific **Browsers** and **tags** use:
 ```
 mvn clean test -Dgroups="Functional Negative" -Dbrowser="Edge Firefox"
 ```
-
 🔙 [click here and click on 'Expand details about manually triggered commands' to collaps the section](https://github.com/Olexandr29/eCommerce?tab=readme-ov-file#-triggered-manually-on-windows-and)
   </details>
 
@@ -127,9 +126,9 @@ mvn clean test -Dgroups="Functional Negative" -Dbrowser="Edge Firefox"
 
 - #### 📊 Allure Report:
 <details>
-<summary>
-Expand details about methods to generate Allure report</summary>
-#### **Temporary:**
+    <summary>Expand details about methods to generate Allure report</summary>
+
+###### ⏱️Temporary:
 
 For generating temporary Allure report (on the **temp** folder not related to the project) and without history
 after completing the previous command like
@@ -140,16 +139,17 @@ use:
 ```
 allure serve target/allure-results
 ```
-Look at examples on the screenshots below
+Look at an example on the screenshot below
 ![Allure screen page without history](screenShots/1.0 Allure report without history.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder(not%20related%20to%20the%20project).png)
 ___
 
-#### **Constant with history:**
+###### 💼 **Constant with history:**
 
 For generating Allure report (on the **target** folder inside the project) and add testing history (displays after second and more runs)
 use this 3 steps:
-1) use any command for local run but without the **clear** phase, like:
+    <details>
+    <summary>1) use any command for local run but without the **clear** phase, like:</summary>
 ```
 mvn test
 ```
@@ -166,7 +166,11 @@ mvn test -Dgroups=Smoke
 mvn test -Dgroups="Functional Negative" -Dbrowser="Edge Firefox"
 ```
 or any of you want, but without *clean* phase
-2) copy history from the run:
+  </details>
+
+<details>
+<summary>2) copy history from the run:</summary>
+
 - 2.1) create folder if it deleted
 ```
 New-Item -ItemType Directory -Force -Path "target/allure-results/history"
@@ -175,16 +179,23 @@ New-Item -ItemType Directory -Force -Path "target/allure-results/history"
 ```
 Copy-Item -Recurse -Force "target/allure-report/history/*" "target/allure-results/history/" -ErrorAction SilentlyContinue
 ```
-3) generate and open a report:
-- 3.1) generate:
+</details>
+
+  <details>
+  <summary>3) generate and open a report:</summary>
+
+  - 3.1) generate:
 ```
 allure generate target/allure-results --clean -o target/allure-report
 ```
+
 - 3.2) and open:
 ```
 allure open target/allure-report
 ```
-Look at examples on the screenshots below
+  </details>
+
+Look at example on the screenshot below
 ![Allure screen page with history](screenShots/2.0 Allure report with historytrends.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.1%20report%20generated%20to%20Report%20folder%20insdie%20the%20project(target).png)
 ___
