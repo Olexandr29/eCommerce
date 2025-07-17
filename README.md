@@ -142,7 +142,7 @@ allure serve target/allure-results
 ```
 Look at an example on the screenshot below
 ![Allure screen page without history](screenShots/1.0 Allure report without history.png)
-[if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder(not%20related%20to%20the%20project).png)
+[if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder%20not%20related%20to%20the%20project.png)
 ___
 
 ###### 💼 **Constant with history:**
