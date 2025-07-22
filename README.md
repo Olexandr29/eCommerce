@@ -140,7 +140,7 @@ use:
 ```
 allure serve target/allure-results
 ```
-Look at an example on the screenshot below
+Here is an example of such Allure report
 ![Allure screen page without history](</screenShots/1.0 Allure report without history.png>)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder%20not%20related%20to%20the%20project.png)
 ___
@@ -196,7 +196,7 @@ allure open target/allure-report
 ```
   </details>
 
-Look at example on the screenshot below
+Here is an example of such Allure report
 ![Allure screen page with history](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.0%20Allure%20report%20with%20historytrends.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.1%20report%20generated%20to%20Report%20folder%20insdie%20the%20project%20target.png)
 ___
@@ -207,7 +207,7 @@ Just run it and look at the Allure report with history (use the command below):
 ```
 ./autorun-by-tags-and-browser-and-generate-allure-report-with-history.ps1
 ```
-Look at an example on the screenshot below
+Here is an example of such Allure report
 ![Allure screen page with history (has run by script)](<./screenShots/3.0 Allure report with history run by ps script.png>)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.1.%20inside%20the%20project%20target%20folder%20.png)
   </details>

@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa28577d-63d8-4a52-9e7a-835dc33542db" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenShots/1.1 report generated to temp folder(not related to the project).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenShots/2.0 Allure report with history(trends).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenShots/2.1 report generated to Report folder insdie the project(target).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenShots/3.0 Allure report with history(run by ps script) .png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenShots/3.1. inside the project(target) folder .png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TasksAndManualTestCases.md" beforeDir="false" afterPath="$PROJECT_DIR$/TasksAndManualTestCases.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
