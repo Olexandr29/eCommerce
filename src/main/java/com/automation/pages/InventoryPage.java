@@ -19,7 +19,7 @@ public class InventoryPage extends BasePage {
     By addToCartBtn = By.xpath("//button[text()='Add to cart']");
     By shoppingCartLink = By.className("shopping_cart_link");
     By sortDropdown = By.className("product_sort_container");
-
+    By removeBtnLocator = By.xpath("//button[text()='Remove']");
 
     public InventoryPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -126,5 +126,8 @@ public class InventoryPage extends BasePage {
         return button.getCssValue("color");
     }
 
-
+    public void removeAddedItemFromCartViaInventoryPage() {
+        WebElement removeBtn = wait.until(ExpectedConditions.elementToBeClickable(removeBtnLocator));
+        removeBtn.click();
+    }
 }

@@ -21,4 +21,5 @@ public static final String expectedCheckoutStep1NameIsEmpty = "First Name is req
 public static final String specificProductName = "Sauce Labs Onesie";
 public static final String fiveHundredSymbols = "a".repeat(500);
 public static final String standardUsernameButWithSpacesBeforeAndAfter = " standard_user ";
+public static final String lastItemName = "Test.allTheThings() T-Shirt (Red)";
 }

@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa28577d-63d8-4a52-9e7a-835dc33542db" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/tests/OtherTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TasksAndManualTestCases.md" beforeDir="false" afterPath="$PROJECT_DIR$/TasksAndManualTestCases.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/pages/InventoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/pages/InventoryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/pages/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/pages/TestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/allure-results/environment.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,93 +48,97 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortKey" value="BY_TIME_ASCENDING" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BasePage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.automation.pages.BasePage.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.cross-browser-tests.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.run-tests-and-generate-report.executor&quot;: &quot;Coverage&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.All in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BaseTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CrossBrowserTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalCartTests.cartStatePersistsAcrossNavigation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalCartTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalCartTests.removeOneItemFromCart.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalCheckoutFlowTests.checkoutFormValidation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalCheckoutFlowTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalCheckoutFlowTests.fullPurchaseFlow.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalCheckoutFlowTests.totalPriceWithTaxIsCalculatedCorrectly.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalInventoryTests.addMultipleItemsToCart.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalInventoryTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalInventoryTests.productDetailsView.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalInventoryTests.sortProductsByPrice.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalNavigationTests.backFromPDLtoPl.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalNavigationTests.backFromPDPtoPLP.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalNavigationTests.backFromPDPtoPLPbyUsingBrowserBackBtn.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FunctionalNavigationTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryTests.addItemToCartAndCheckBadge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryTests.checkProductListPresenceAfterLogin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryTests.logoutFromTheWebsite.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginTests (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginTests.firstTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginTests.successfulLoginTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginTests.unsuccessfulLoginWithLockedUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NegativeTests.enteringSQLinjectionInUsername.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NegativeTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NegativeTests.loginWithSpacesInUsernameBeforeAndAfter.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NegativeTests.longValueInUsernameField.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityCartTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityCartTests.navigateToEmptyCartPage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityCartTests.removeItemFromCart.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityCheckoutTests.cancelFromOverviewPage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityCheckoutTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityCheckoutTests.proceedToCheckout.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityCheckoutTests.proceedToCheckoutStep2.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityLoginTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityLoginTests.successfulLoginAsPerformanceGlitchUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityLoginTests.unsuccessfulLoginWithEmptyFields.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SanityLoginTests.unsuccessfulLoginWithNonExistentUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SmokeLoginTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SmokeLoginTests.successfulLoginTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SmokeLoginTests.unsuccessfulLoginWithLockedUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UI_UXtests.browserWindowResizing.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UI_UXtests.buttonStateChangeOnInteraction.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UI_UXtests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UI_UXtests.logoAndHeaderVisibility.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UiUxTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.com.automation.tests.functional in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.com.automation.tests.uiUX in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.com.automation.tests.ui_ux in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.functional in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.sanity in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.smoke in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.src.test in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.src.test.java in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.src.test.java.com.automation.tests in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.src.test.tests.java.com.automation.tests.smoke in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.test in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.tests in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.tests.java in Automation.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;TestNG.LoginTests.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Files/Java Projects/Portfolio/Automation/src/main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Files/Java Projects/Portfolio/eCommerce&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BasePage.executor": "Run",
+    "Application.com.automation.pages.BasePage.executor": "Run",
+    "Batch.cross-browser-tests.executor": "Run",
+    "Batch.run-tests-and-generate-report.executor": "Coverage",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in Automation.executor": "Run",
+    "JUnit.BaseTest.executor": "Run",
+    "JUnit.CrossBrowserTest.executor": "Run",
+    "JUnit.FunctionalCartTests.cartStatePersistsAcrossNavigation.executor": "Run",
+    "JUnit.FunctionalCartTests.executor": "Run",
+    "JUnit.FunctionalCartTests.removeOneItemFromCart.executor": "Run",
+    "JUnit.FunctionalCheckoutFlowTests.checkoutFormValidation.executor": "Run",
+    "JUnit.FunctionalCheckoutFlowTests.executor": "Run",
+    "JUnit.FunctionalCheckoutFlowTests.fullPurchaseFlow.executor": "Run",
+    "JUnit.FunctionalCheckoutFlowTests.totalPriceWithTaxIsCalculatedCorrectly.executor": "Run",
+    "JUnit.FunctionalInventoryTests.addMultipleItemsToCart.executor": "Run",
+    "JUnit.FunctionalInventoryTests.executor": "Run",
+    "JUnit.FunctionalInventoryTests.productDetailsView.executor": "Run",
+    "JUnit.FunctionalInventoryTests.sortProductsByPrice.executor": "Run",
+    "JUnit.FunctionalNavigationTests.backFromPDLtoPl.executor": "Run",
+    "JUnit.FunctionalNavigationTests.backFromPDPtoPLP.executor": "Run",
+    "JUnit.FunctionalNavigationTests.backFromPDPtoPLPbyUsingBrowserBackBtn.executor": "Run",
+    "JUnit.FunctionalNavigationTests.executor": "Run",
+    "JUnit.InventoryTests.addItemToCartAndCheckBadge.executor": "Run",
+    "JUnit.InventoryTests.checkProductListPresenceAfterLogin.executor": "Run",
+    "JUnit.InventoryTests.executor": "Run",
+    "JUnit.InventoryTests.logoutFromTheWebsite.executor": "Run",
+    "JUnit.LoginTests (1).executor": "Run",
+    "JUnit.LoginTests.executor": "Run",
+    "JUnit.LoginTests.firstTest.executor": "Run",
+    "JUnit.LoginTests.successfulLoginTest.executor": "Run",
+    "JUnit.LoginTests.unsuccessfulLoginWithLockedUser.executor": "Run",
+    "JUnit.NegativeTests.enteringSQLinjectionInUsername.executor": "Run",
+    "JUnit.NegativeTests.executor": "Run",
+    "JUnit.NegativeTests.loginWithSpacesInUsernameBeforeAndAfter.executor": "Run",
+    "JUnit.NegativeTests.longValueInUsernameField.executor": "Run",
+    "JUnit.OtherTests.CheckoutWithEmptyCart.executor": "Run",
+    "JUnit.OtherTests.cartPersistAfterLogOut.executor": "Run",
+    "JUnit.OtherTests.executor": "Run",
+    "JUnit.OtherTests.removeFromCartViaInventoryPage.executor": "Run",
+    "JUnit.SanityCartTests.executor": "Run",
+    "JUnit.SanityCartTests.navigateToEmptyCartPage.executor": "Run",
+    "JUnit.SanityCartTests.removeItemFromCart.executor": "Run",
+    "JUnit.SanityCheckoutTests.cancelFromOverviewPage.executor": "Run",
+    "JUnit.SanityCheckoutTests.executor": "Run",
+    "JUnit.SanityCheckoutTests.proceedToCheckout.executor": "Run",
+    "JUnit.SanityCheckoutTests.proceedToCheckoutStep2.executor": "Run",
+    "JUnit.SanityLoginTests.executor": "Run",
+    "JUnit.SanityLoginTests.successfulLoginAsPerformanceGlitchUser.executor": "Run",
+    "JUnit.SanityLoginTests.unsuccessfulLoginWithEmptyFields.executor": "Run",
+    "JUnit.SanityLoginTests.unsuccessfulLoginWithNonExistentUser.executor": "Run",
+    "JUnit.SmokeLoginTests.executor": "Run",
+    "JUnit.SmokeLoginTests.successfulLoginTest.executor": "Run",
+    "JUnit.SmokeLoginTests.unsuccessfulLoginWithLockedUser.executor": "Run",
+    "JUnit.UI_UXtests.browserWindowResizing.executor": "Run",
+    "JUnit.UI_UXtests.buttonStateChangeOnInteraction.executor": "Run",
+    "JUnit.UI_UXtests.executor": "Run",
+    "JUnit.UI_UXtests.logoAndHeaderVisibility.executor": "Run",
+    "JUnit.UiUxTests.executor": "Run",
+    "JUnit.com.automation.tests.functional in Automation.executor": "Run",
+    "JUnit.com.automation.tests.uiUX in Automation.executor": "Run",
+    "JUnit.com.automation.tests.ui_ux in Automation.executor": "Run",
+    "JUnit.functional in Automation.executor": "Run",
+    "JUnit.java in Automation.executor": "Run",
+    "JUnit.sanity in Automation.executor": "Run",
+    "JUnit.smoke in Automation.executor": "Run",
+    "JUnit.src.test in Automation.executor": "Run",
+    "JUnit.src.test.java in Automation.executor": "Run",
+    "JUnit.src.test.java.com.automation.tests in Automation.executor": "Run",
+    "JUnit.src.test.tests.java.com.automation.tests.smoke in Automation.executor": "Run",
+    "JUnit.test in Automation.executor": "Run",
+    "JUnit.tests in Automation.executor": "Run",
+    "JUnit.tests.java in Automation.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TestNG.LoginTests.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Files/Java Projects/Portfolio/Automation/src/main",
+    "last_opened_file_path": "C:/Files/Java Projects/Portfolio/eCommerce",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Files\Java Projects\Portfolio\Automation\.github\workflows" />
@@ -149,18 +156,65 @@
       <recent name="com.automation.pages" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in Automation">
-    <configuration name="SmokeLoginTests.successfulLoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.OtherTests.CheckoutWithEmptyCart">
+    <configuration name="OtherTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Automation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.automation.tests.smoke.*" />
+          <option name="PATTERN" value="com.automation.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.automation.tests.smoke" />
-      <option name="MAIN_CLASS_NAME" value="com.automation.tests.smoke.SmokeLoginTests" />
-      <option name="METHOD_NAME" value="successfulLoginTest" />
+      <option name="PACKAGE_NAME" value="com.automation.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.tests.OtherTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OtherTests.CheckoutWithEmptyCart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.tests.OtherTests" />
+      <option name="METHOD_NAME" value="CheckoutWithEmptyCart" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OtherTests.cartPersistAfterLogOut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.tests.OtherTests" />
+      <option name="METHOD_NAME" value="cartPersistAfterLogOut" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OtherTests.removeFromCartViaInventoryPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.tests.OtherTests" />
+      <option name="METHOD_NAME" value="removeFromCartViaInventoryPage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,49 +228,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="src.test in Automation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="src.test" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="src.test.java.com.automation.tests in Automation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.test.java.com.automation.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="src.test.java.com.automation.tests" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="tests in Automation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Automation" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/com/automation/tests" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OtherTests.CheckoutWithEmptyCart" />
+        <item itemvalue="JUnit.OtherTests" />
+        <item itemvalue="JUnit.OtherTests.removeFromCartViaInventoryPage" />
+        <item itemvalue="JUnit.OtherTests.cartPersistAfterLogOut" />
         <item itemvalue="JUnit.java in Automation" />
-        <item itemvalue="JUnit.tests in Automation" />
-        <item itemvalue="JUnit.src.test.java.com.automation.tests in Automation" />
-        <item itemvalue="JUnit.src.test in Automation" />
-        <item itemvalue="JUnit.SmokeLoginTests.successfulLoginTest" />
       </list>
     </recent_temporary>
   </component>

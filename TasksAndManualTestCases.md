@@ -6,8 +6,9 @@ Legend / Status Keys of the file:
   - ⚠️ Blocked
 ___
 
-- [ ] Automate test cases 031-033 
-
+- [ ] Automate test cases 031-033
+<details>
+<summary>✅ Automated:</summary>
 TC-031: Cart state persists after logout
 - Preconditions: Logged in as standard_user
 - Steps:
@@ -24,12 +25,14 @@ TC-032: Add item, go to cart, then back, remove from inventory
 3. Click "Remove"
 - Expected: Cart badge disappears, cart updated
 
-TC-033: Checkout with empty cart
+TC-033: Checkout with empty cart - 🐞 **Bug is found**
 - Preconditions: Logged in, cart is empty
 - Steps:
 1. Navigate to cart
 2. Click "Checkout"
 - Expected: User stays on cart page, no progress possible
+</details>
+
 ___
 
 - [x] [ The latest Allure report is here] (https://olexandr29.github.io/eCommerce/)
