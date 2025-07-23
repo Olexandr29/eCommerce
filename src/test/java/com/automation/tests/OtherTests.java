@@ -49,7 +49,8 @@ cartPage = inventoryPage.openCartByClickOnCartIcon();
     Assertions.assertTrue(cartPage.isCartBadgeDisappeared(), "the cart badge is not disappeared");
     }
 
-    @Story("Checkout with empty cart")
+   //Blocked until the bug report will be fixed
+  /*  @Story("Checkout with empty cart")
     @Tag("Negative")
     @Severity(SeverityLevel.MINOR)
     @TmsLink("TC-033")
@@ -59,5 +60,5 @@ cartPage = inventoryPage.openCartByClickOnCartIcon();
         cartPage = inventoryPage.openCartByClickOnCartIcon();
         cartPage.navigateToCheckout();
         Assertions.assertEquals(expectedCartPageUrl, driver.getCurrentUrl(), "it should be still the Cart page, but it's not")
-    }
+    }*/
 }

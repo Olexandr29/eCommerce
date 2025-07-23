@@ -9,6 +9,7 @@ ___
 - [ ] Automate test cases 031-033
 <details>
 <summary>✅ Automated:</summary>
+
 TC-031: Cart state persists after logout
 - Preconditions: Logged in as standard_user
 - Steps:
@@ -25,6 +26,10 @@ TC-032: Add item, go to cart, then back, remove from inventory
 3. Click "Remove"
 - Expected: Cart badge disappears, cart updated
 
+<br>
+
+⚠️  **Blocked until the bug will be fixed**
+
 TC-033: Checkout with empty cart - 🐞 **Bug is found**
 - Preconditions: Logged in, cart is empty
 - Steps:
@@ -32,6 +37,7 @@ TC-033: Checkout with empty cart - 🐞 **Bug is found**
 2. Click "Checkout"
 - Expected: User stays on cart page, no progress possible
 </details>
+
 
 ___
 
