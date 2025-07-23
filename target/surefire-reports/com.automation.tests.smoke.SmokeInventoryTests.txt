@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.automation.tests.smoke.SmokeInventoryTests
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 37.49 s -- in com.automation.tests.smoke.SmokeInventoryTests
