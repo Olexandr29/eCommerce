@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Olexandr29/eCommerce.git'
-            }
-        }
-
         stage('Build and Test') {
             steps {
                 sh 'mvn clean test'
