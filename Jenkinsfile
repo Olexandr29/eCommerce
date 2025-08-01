@@ -4,6 +4,7 @@ pipeline {
     tools {
         maven 'Maven 3.9.6'
         jdk 'JDK 21'
+        allure 'Allure 2.33.0'
         }
 
     stages {
