@@ -16,13 +16,13 @@ pipeline {
 
         stage('Generate Allure Report') {
             steps {
-                bat 'mvn allure: report'
+                bat 'mvn allure:report'
             }
         }
 
         stage('Publish Allure Report') {
             steps {
-                allure includeProperties: false,
+                allure includeProperties: true,
                         jdk: '',
                         results: [[path:'target/allure-results']]
             }
