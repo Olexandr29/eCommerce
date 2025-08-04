@@ -38,7 +38,7 @@
     <details>
         <summary>Expand details about triggered methods </summary>
   
-  -  a) [Manually](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/manually-triggered-run-tests-on-windows.yml)
+  -  a) [Manually, using yml file](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/manually-triggered-run-tests-on-windows.yml) and via UI (by clicking "Run workflow")
      on Windows+Chrome 
   - b) By push:
              <br>- [on Linux+Chrome + published Allure report on GitHub Pages](https://github.com/Olexandr29/eCommerce/blob/main/.github/workflows/auto-triggered-by-push-on-linux-chrome-and-publish-allure-report-on-github-pages.yml)
@@ -84,14 +84,16 @@
   [👉 The lates Allure report on GitHub Pages](https://olexandr29.github.io/eCommerce/)
     </details>
 
-___
+---
 
 ### 1.2) via Jenkins <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg" alt="Jenkins logo" width="35"/>
+
 - #### ✅ Triggered:
 <details>
         <summary>Expand details about triggered methods </summary>
 
-*Manually via UI (by clicking "Build Now") on Windows+Chrome*
+[Manually, using Jenkins file](https://github.com/Olexandr29/eCommerce/blob/main/Jenkinsfile) and via UI (by clicking "Build Now")
+on Windows+Chrome
    </details>
 
 - #### 🧩 Matrix strategy
@@ -185,6 +187,9 @@ allure serve target/allure-results
 ```
 Here is an example of such Allure report
 ![Allure screen page without history](screenShots/1.0 Allure report without history.png)
+or this variant can work
+<img src="screenShots/1.0 Allure report without history.png" alt="Allure screen page without history" width="600"/>
+
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder%20not%20related%20to%20the%20project.png)
 ___
 
