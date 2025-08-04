@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage('Publish jUnit Report') {
+            steps {
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
+
         stage('Generate Allure Report') {
             steps {
                 bat 'mvn allure:report'
