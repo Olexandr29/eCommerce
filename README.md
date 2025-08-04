@@ -30,7 +30,10 @@
 ---
 
 ## ▶️ The ways of running tests (remote and local):
-### 1) 🌐 Remote run via 🚀 CI/CD (GitHub Actions)
+### 1) 🌐 Remote run via 🚀 CI/CD (GitHub Actions or Jenkins)
+### 1.1) via GitHub Actions <img src="https://icon.icepanel.io/Technology/svg/GitHub-Actions.svg" alt="GitHub Actions Logo" width="35"/>
+
+
 - #### ✅ Triggered:
     <details>
         <summary>Expand details about triggered methods </summary>
@@ -80,7 +83,46 @@
 
   [👉 The lates Allure report on GitHub Pages](https://olexandr29.github.io/eCommerce/)
     </details>
+
 ___
+
+### 1.2) via Jenkins <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg" alt="Jenkins logo" width="35"/>
+- #### ✅ Triggered:
+<details>
+        <summary>Expand details about triggered methods </summary>
+
+*Manually via UI (by clicking "Build Now") on Windows+Chrome*
+   </details>
+
+- #### 🧩 Matrix strategy
+<details>
+    <summary>Expand details about matrix strategy</summary>
+
+|OS|Browser|
+|--|-------|
+|Windows|Chrome|
+
+  </details>
+
+- #### 📊 Allure Report
+<details>
+<summary> Expand details about Allure report</summary>
+
+Generated via the command inside ['eCommerce-Jenkins-CI' pipeline](https://github.com/Olexandr29/eCommerce/blob/main/Jenkinsfile)
+
+```
+mvn allure:report
+```
+
+and opened in Jenkins via 'Allure Report' plugin
+<p align="center">
+  <img src="screenShots/5.0 Jenkins buil results.png" alt="Image 1" width="45%" style="display:inline-block; margin-right:10px;" />
+  <img src="screenShots/5.1 Allure report where Executors is Jenkins.png" alt="Image 2" width="45%" style="display:inline-block;" />
+</p>
+
+</details>
+
+---
 
 ### 💻 2) Local run via ⬛>_Terminal (inside IDEA)
 - #### ✅ Triggered manually on Windows and:
@@ -142,7 +184,7 @@ use:
 allure serve target/allure-results
 ```
 Here is an example of such Allure report
-![Allure screen page without history](</screenShots/1.0 Allure report without history.png>)
+![Allure screen page without history](screenShots/1.0 Allure report without history.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/1.1%20report%20generated%20to%20temp%20folder%20not%20related%20to%20the%20project.png)
 ___
 
@@ -198,7 +240,7 @@ allure open target/allure-report
   </details>
 
 Here is an example of such Allure report
-![Allure screen page with history](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.0%20Allure%20report%20with%20historytrends.png)
+![Allure screen page with history](screenShots/2.0 Allure report with historytrends.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/2.1%20report%20generated%20to%20Report%20folder%20insdie%20the%20project%20target.png)
 ___
 For cross-browser testing and generating an Allure report with history 
@@ -209,43 +251,12 @@ Just run it and look at the Allure report with history (use the command below):
 ./autorun-by-tags-and-browser-and-generate-allure-report-with-history.ps1
 ```
 Here is an example of such Allure report
-![Allure screen page with history (has run by script)](<./screenShots/3.0 Allure report with history run by ps script.png>)
+![Allure screen page with history (has run by script)](screenShots/3.0 Allure report with history run by ps script.png)
 [if you want to look at the folder where the report is saved click the link](https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.1.%20inside%20the%20project%20target%20folder%20.png)
   </details>
 <!-- <img alt="Allure report" src="https://github.com/Olexandr29/eCommerce/blob/main/screenShots/3.0%20Allure%20report%20with%20history%20run%20by%20ps%20script.png?raw=true" width="500" style="float: left"> -->
 
-### 3) 🌐 Remote run via 🚀 CI/CD (Jenkins)
-- #### ✅ Triggered:
-<details>
-        <summary>Expand details about triggered methods </summary>
+---
 
-  *Manually via UI (by clicking "Build Now") on Windows+Chrome*
-   </details>
 
-- #### 🧩 Matrix strategy
-<details>
-    <summary>Expand details about matrix strategy</summary>
 
-|OS|Browser|
-|--|-------|
-|Windows|Chrome|
-
-  </details>
-
-- #### 📊 Allure Report
-<details>
-<summary> Expand details about Allure report</summary>
-
-Generated via the command inside 'eCommerce-Jenkins-CI' pipeline
-
-```
-mvn allure:report
-```
-
-and opened in Jenkins via 'Allure Report' plugin
-
-https://github.com/Olexandr29/eCommerce/blob/main/screenShots/5.0%20Jenkins%20buil%20results.png
-https://github.com/Olexandr29/eCommerce/blob/main/screenShots/5.1%20Allure%20report%20where%20Executors%20is%20Jenkins.png
-
-</details>
-___
